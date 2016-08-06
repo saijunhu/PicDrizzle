@@ -7,21 +7,112 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E11BE8870A93679D43CD0D5 /* Pods_PicDrizzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23580C8DC8847E91AD4B74E1 /* Pods_PicDrizzle.framework */; };
 		762816061D3B1051000019FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762816051D3B1051000019FA /* AppDelegate.swift */; };
-		762816081D3B1051000019FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762816071D3B1051000019FA /* ViewController.swift */; };
-		7628160B1D3B1051000019FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 762816091D3B1051000019FA /* Main.storyboard */; };
 		7628160D1D3B1051000019FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7628160C1D3B1051000019FA /* Assets.xcassets */; };
 		762816101D3B1051000019FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7628160E1D3B1051000019FA /* LaunchScreen.storyboard */; };
+		762816181D3B1398000019FA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762816171D3B1398000019FA /* BaseViewController.swift */; };
+		7628161A1D3B13B3000019FA /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762816191D3B13B3000019FA /* DisplayViewController.swift */; };
+		762816201D3B1819000019FA /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7628161F1D3B1819000019FA /* PreviewViewController.swift */; };
+		762816221D3B40FB000019FA /* PDNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762816211D3B40FA000019FA /* PDNetwork.swift */; };
+		762816261D3B45CF000019FA /* PDURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762816251D3B45CF000019FA /* PDURL.swift */; };
+		762816281D3BB097000019FA /* CustomKoloda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762816271D3BB097000019FA /* CustomKoloda.swift */; };
+		763D789D1D547DA4001CBDA6 /* CircleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D789C1D547DA4001CBDA6 /* CircleMenu.swift */; };
+		763D789F1D547DAB001CBDA6 /* CircleMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D789E1D547DAB001CBDA6 /* CircleMenuButton.swift */; };
+		763D78A11D547DC8001CBDA6 /* CircleMenuLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D78A01D547DC8001CBDA6 /* CircleMenuLoader.swift */; };
+		763D78A51D548D2C001CBDA6 /* PDDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D78A41D548D2C001CBDA6 /* PDDownloader.swift */; };
+		763D78C91D54ACC1001CBDA6 /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78A71D54ACC1001CBDA6 /* ShareSDK.framework */; };
+		763D78CA1D54ACC2001CBDA6 /* ShareSDKExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78AA1D54ACC1001CBDA6 /* ShareSDKExtension.framework */; };
+		763D78CB1D54ACC2001CBDA6 /* ShareSDKUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 763D78AB1D54ACC1001CBDA6 /* ShareSDKUI.bundle */; };
+		763D78CC1D54ACC2001CBDA6 /* ShareSDKUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78AC1D54ACC1001CBDA6 /* ShareSDKUI.framework */; };
+		763D78CD1D54ACC2001CBDA6 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78AF1D54ACC1001CBDA6 /* TencentOpenAPI.framework */; };
+		763D78CE1D54ACC2001CBDA6 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 763D78B01D54ACC1001CBDA6 /* TencentOpenApi_IOS_Bundle.bundle */; };
+		763D78CF1D54ACC2001CBDA6 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78B21D54ACC1001CBDA6 /* libWeiboSDK.a */; };
+		763D78D01D54ACC2001CBDA6 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 763D78BC1D54ACC1001CBDA6 /* WeiboSDK.bundle */; };
+		763D78D11D54ACC2001CBDA6 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78C01D54ACC1001CBDA6 /* libWeChatSDK.a */; };
+		763D78D21D54ACC2001CBDA6 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 763D78C11D54ACC1001CBDA6 /* README.txt */; };
+		763D78D31D54ACC2001CBDA6 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78C61D54ACC1001CBDA6 /* MOBFoundation.framework */; };
+		763D78D41D54ACC2001CBDA6 /* ShareSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 763D78C71D54ACC1001CBDA6 /* ShareSDK.bundle */; };
+		763D78D51D54ACC2001CBDA6 /* ShareSDKConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78C81D54ACC1001CBDA6 /* ShareSDKConnector.framework */; };
+		763D78D71D54AD80001CBDA6 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78D61D54AD80001CBDA6 /* libicucore.tbd */; };
+		763D78D91D54AD99001CBDA6 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78D81D54AD99001CBDA6 /* libz.1.2.5.tbd */; };
+		763D78DB1D54ADBF001CBDA6 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78DA1D54ADBF001CBDA6 /* libstdc++.tbd */; };
+		763D78DD1D54ADC9001CBDA6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78DC1D54ADC9001CBDA6 /* libz.tbd */; };
+		763D78DF1D54ADDC001CBDA6 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78DE1D54ADDC001CBDA6 /* JavaScriptCore.framework */; };
+		763D78E11D54ADF0001CBDA6 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78E01D54ADF0001CBDA6 /* libsqlite3.tbd */; };
+		763D78E31D54AE06001CBDA6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78E21D54AE06001CBDA6 /* MessageUI.framework */; };
+		763D78E51D54AE15001CBDA6 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78E41D54AE15001CBDA6 /* ImageIO.framework */; };
+		7658272E1D556B7700C91EA2 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7658272D1D556B7700C91EA2 /* FBSDKMessengerShareKit.framework */; };
+		765827341D556B8900C91EA2 /* libAPOpenSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 765827321D556B8900C91EA2 /* libAPOpenSdk.a */; };
+		765827351D556B8900C91EA2 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 765827331D556B8900C91EA2 /* README.md */; };
+		765827371D55B89000C91EA2 /* PDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765827361D55B89000C91EA2 /* PDService.swift */; };
+		76CA718B1D3DC2CC00E7B30C /* settingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CA718A1D3DC2CC00E7B30C /* settingTableViewController.swift */; };
+		76CA718D1D3DC2FB00E7B30C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76CA718C1D3DC2FB00E7B30C /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23580C8DC8847E91AD4B74E1 /* Pods_PicDrizzle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicDrizzle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		762816021D3B1051000019FA /* PicDrizzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicDrizzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		762816051D3B1051000019FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		762816071D3B1051000019FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7628160A1D3B1051000019FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7628160C1D3B1051000019FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7628160F1D3B1051000019FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		762816111D3B1051000019FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		762816171D3B1398000019FA /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		762816191D3B13B3000019FA /* DisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
+		7628161F1D3B1819000019FA /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		762816211D3B40FA000019FA /* PDNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDNetwork.swift; sourceTree = "<group>"; };
+		762816251D3B45CF000019FA /* PDURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDURL.swift; sourceTree = "<group>"; };
+		762816271D3BB097000019FA /* CustomKoloda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomKoloda.swift; sourceTree = "<group>"; };
+		762D09501D54E2EC007AF7D7 /* ShareSDK-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ShareSDK-Bridging-Header.h"; path = "PicDrizzle/ShareSDK-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		763D789C1D547DA4001CBDA6 /* CircleMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleMenu.swift; sourceTree = "<group>"; };
+		763D789E1D547DAB001CBDA6 /* CircleMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleMenuButton.swift; sourceTree = "<group>"; };
+		763D78A01D547DC8001CBDA6 /* CircleMenuLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleMenuLoader.swift; sourceTree = "<group>"; };
+		763D78A41D548D2C001CBDA6 /* PDDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDDownloader.swift; sourceTree = "<group>"; };
+		763D78A71D54ACC1001CBDA6 /* ShareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDK.framework; sourceTree = "<group>"; };
+		763D78AA1D54ACC1001CBDA6 /* ShareSDKExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKExtension.framework; sourceTree = "<group>"; };
+		763D78AB1D54ACC1001CBDA6 /* ShareSDKUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDKUI.bundle; sourceTree = "<group>"; };
+		763D78AC1D54ACC1001CBDA6 /* ShareSDKUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKUI.framework; sourceTree = "<group>"; };
+		763D78AF1D54ACC1001CBDA6 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		763D78B01D54ACC1001CBDA6 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		763D78B21D54ACC1001CBDA6 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
+		763D78B31D54ACC1001CBDA6 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
+		763D78B41D54ACC1001CBDA6 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
+		763D78B51D54ACC1001CBDA6 /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
+		763D78B61D54ACC1001CBDA6 /* WBHttpRequest+WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboUser.h"; sourceTree = "<group>"; };
+		763D78B71D54ACC1001CBDA6 /* WBHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBHttpRequest.h; sourceTree = "<group>"; };
+		763D78B81D54ACC1001CBDA6 /* WBSDKBasicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKBasicButton.h; sourceTree = "<group>"; };
+		763D78B91D54ACC1001CBDA6 /* WBSDKCommentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKCommentButton.h; sourceTree = "<group>"; };
+		763D78BA1D54ACC1001CBDA6 /* WBSDKRelationshipButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKRelationshipButton.h; sourceTree = "<group>"; };
+		763D78BB1D54ACC1001CBDA6 /* WeiboSDK+Statistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WeiboSDK+Statistics.h"; sourceTree = "<group>"; };
+		763D78BC1D54ACC1001CBDA6 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
+		763D78BD1D54ACC1001CBDA6 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
+		763D78BE1D54ACC1001CBDA6 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
+		763D78C01D54ACC1001CBDA6 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		763D78C11D54ACC1001CBDA6 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		763D78C21D54ACC1001CBDA6 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		763D78C31D54ACC1001CBDA6 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		763D78C41D54ACC1001CBDA6 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		763D78C61D54ACC1001CBDA6 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
+		763D78C71D54ACC1001CBDA6 /* ShareSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDK.bundle; sourceTree = "<group>"; };
+		763D78C81D54ACC1001CBDA6 /* ShareSDKConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKConnector.framework; sourceTree = "<group>"; };
+		763D78D61D54AD80001CBDA6 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		763D78D81D54AD99001CBDA6 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		763D78DA1D54ADBF001CBDA6 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		763D78DC1D54ADC9001CBDA6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		763D78DE1D54ADDC001CBDA6 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		763D78E01D54ADF0001CBDA6 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		763D78E21D54AE06001CBDA6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		763D78E41D54AE15001CBDA6 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		7658272D1D556B7700C91EA2 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
+		765827301D556B8900C91EA2 /* APOpenAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APOpenAPI.h; sourceTree = "<group>"; };
+		765827311D556B8900C91EA2 /* APOpenAPIObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APOpenAPIObject.h; sourceTree = "<group>"; };
+		765827321D556B8900C91EA2 /* libAPOpenSdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAPOpenSdk.a; sourceTree = "<group>"; };
+		765827331D556B8900C91EA2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		765827361D55B89000C91EA2 /* PDService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDService.swift; sourceTree = "<group>"; };
+		76CA718A1D3DC2CC00E7B30C /* settingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingTableViewController.swift; sourceTree = "<group>"; };
+		76CA718C1D3DC2FB00E7B30C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		984028629FE53AEC4D4648EB /* Pods-PicDrizzle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicDrizzle.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicDrizzle/Pods-PicDrizzle.release.xcconfig"; sourceTree = "<group>"; };
+		AC9D1920BED941C8E8BCA6C3 /* Pods-PicDrizzle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicDrizzle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicDrizzle/Pods-PicDrizzle.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +120,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				763D78E51D54AE15001CBDA6 /* ImageIO.framework in Frameworks */,
+				763D78E31D54AE06001CBDA6 /* MessageUI.framework in Frameworks */,
+				763D78E11D54ADF0001CBDA6 /* libsqlite3.tbd in Frameworks */,
+				763D78DF1D54ADDC001CBDA6 /* JavaScriptCore.framework in Frameworks */,
+				7658272E1D556B7700C91EA2 /* FBSDKMessengerShareKit.framework in Frameworks */,
+				763D78DD1D54ADC9001CBDA6 /* libz.tbd in Frameworks */,
+				763D78DB1D54ADBF001CBDA6 /* libstdc++.tbd in Frameworks */,
+				763D78D91D54AD99001CBDA6 /* libz.1.2.5.tbd in Frameworks */,
+				765827341D556B8900C91EA2 /* libAPOpenSdk.a in Frameworks */,
+				763D78D71D54AD80001CBDA6 /* libicucore.tbd in Frameworks */,
+				763D78D31D54ACC2001CBDA6 /* MOBFoundation.framework in Frameworks */,
+				763D78D11D54ACC2001CBDA6 /* libWeChatSDK.a in Frameworks */,
+				763D78CD1D54ACC2001CBDA6 /* TencentOpenAPI.framework in Frameworks */,
+				763D78CF1D54ACC2001CBDA6 /* libWeiboSDK.a in Frameworks */,
+				1E11BE8870A93679D43CD0D5 /* Pods_PicDrizzle.framework in Frameworks */,
+				763D78C91D54ACC1001CBDA6 /* ShareSDK.framework in Frameworks */,
+				763D78CA1D54ACC2001CBDA6 /* ShareSDKExtension.framework in Frameworks */,
+				763D78D51D54ACC2001CBDA6 /* ShareSDKConnector.framework in Frameworks */,
+				763D78CC1D54ACC2001CBDA6 /* ShareSDKUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +150,8 @@
 			children = (
 				762816041D3B1051000019FA /* PicDrizzle */,
 				762816031D3B1051000019FA /* Products */,
+				C8A7EB0A7BB885D5E45FB530 /* Pods */,
+				C3BBF00D827F632BEA6DC5EF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +166,171 @@
 		762816041D3B1051000019FA /* PicDrizzle */ = {
 			isa = PBXGroup;
 			children = (
+				763D78A61D54ACC0001CBDA6 /* ShareSDK */,
+				762D09501D54E2EC007AF7D7 /* ShareSDK-Bridging-Header.h */,
 				762816051D3B1051000019FA /* AppDelegate.swift */,
-				762816071D3B1051000019FA /* ViewController.swift */,
-				762816091D3B1051000019FA /* Main.storyboard */,
+				762816171D3B1398000019FA /* BaseViewController.swift */,
+				7628161F1D3B1819000019FA /* PreviewViewController.swift */,
+				762816191D3B13B3000019FA /* DisplayViewController.swift */,
+				762816211D3B40FA000019FA /* PDNetwork.swift */,
+				765827361D55B89000C91EA2 /* PDService.swift */,
+				763D78A41D548D2C001CBDA6 /* PDDownloader.swift */,
+				762816251D3B45CF000019FA /* PDURL.swift */,
 				7628160C1D3B1051000019FA /* Assets.xcassets */,
 				7628160E1D3B1051000019FA /* LaunchScreen.storyboard */,
 				762816111D3B1051000019FA /* Info.plist */,
+				762816271D3BB097000019FA /* CustomKoloda.swift */,
+				76CA718A1D3DC2CC00E7B30C /* settingTableViewController.swift */,
+				76CA718C1D3DC2FB00E7B30C /* Main.storyboard */,
+				763D78A21D5485C3001CBDA6 /* CircleMenu */,
 			);
 			path = PicDrizzle;
+			sourceTree = "<group>";
+		};
+		763D78A21D5485C3001CBDA6 /* CircleMenu */ = {
+			isa = PBXGroup;
+			children = (
+				763D789C1D547DA4001CBDA6 /* CircleMenu.swift */,
+				763D789E1D547DAB001CBDA6 /* CircleMenuButton.swift */,
+				763D78A01D547DC8001CBDA6 /* CircleMenuLoader.swift */,
+			);
+			name = CircleMenu;
+			sourceTree = "<group>";
+		};
+		763D78A61D54ACC0001CBDA6 /* ShareSDK */ = {
+			isa = PBXGroup;
+			children = (
+				763D78A71D54ACC1001CBDA6 /* ShareSDK.framework */,
+				763D78A81D54ACC1001CBDA6 /* Support */,
+			);
+			path = ShareSDK;
+			sourceTree = "<group>";
+		};
+		763D78A81D54ACC1001CBDA6 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				763D78A91D54ACC1001CBDA6 /* Optional */,
+				763D78AD1D54ACC1001CBDA6 /* PlatformSDK */,
+				763D78C51D54ACC1001CBDA6 /* Required */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		763D78A91D54ACC1001CBDA6 /* Optional */ = {
+			isa = PBXGroup;
+			children = (
+				763D78AA1D54ACC1001CBDA6 /* ShareSDKExtension.framework */,
+				763D78AB1D54ACC1001CBDA6 /* ShareSDKUI.bundle */,
+				763D78AC1D54ACC1001CBDA6 /* ShareSDKUI.framework */,
+			);
+			path = Optional;
+			sourceTree = "<group>";
+		};
+		763D78AD1D54ACC1001CBDA6 /* PlatformSDK */ = {
+			isa = PBXGroup;
+			children = (
+				7658272F1D556B8900C91EA2 /* APSocialSDK */,
+				7658272C1D556B7700C91EA2 /* FacebookMessengerSDK */,
+				763D78AE1D54ACC1001CBDA6 /* QQSDK */,
+				763D78B11D54ACC1001CBDA6 /* SinaWeiboSDK */,
+				763D78BF1D54ACC1001CBDA6 /* WeChatSDK */,
+			);
+			path = PlatformSDK;
+			sourceTree = "<group>";
+		};
+		763D78AE1D54ACC1001CBDA6 /* QQSDK */ = {
+			isa = PBXGroup;
+			children = (
+				763D78AF1D54ACC1001CBDA6 /* TencentOpenAPI.framework */,
+				763D78B01D54ACC1001CBDA6 /* TencentOpenApi_IOS_Bundle.bundle */,
+			);
+			path = QQSDK;
+			sourceTree = "<group>";
+		};
+		763D78B11D54ACC1001CBDA6 /* SinaWeiboSDK */ = {
+			isa = PBXGroup;
+			children = (
+				763D78B21D54ACC1001CBDA6 /* libWeiboSDK.a */,
+				763D78B31D54ACC1001CBDA6 /* WBHttpRequest+WeiboGame.h */,
+				763D78B41D54ACC1001CBDA6 /* WBHttpRequest+WeiboShare.h */,
+				763D78B51D54ACC1001CBDA6 /* WBHttpRequest+WeiboToken.h */,
+				763D78B61D54ACC1001CBDA6 /* WBHttpRequest+WeiboUser.h */,
+				763D78B71D54ACC1001CBDA6 /* WBHttpRequest.h */,
+				763D78B81D54ACC1001CBDA6 /* WBSDKBasicButton.h */,
+				763D78B91D54ACC1001CBDA6 /* WBSDKCommentButton.h */,
+				763D78BA1D54ACC1001CBDA6 /* WBSDKRelationshipButton.h */,
+				763D78BB1D54ACC1001CBDA6 /* WeiboSDK+Statistics.h */,
+				763D78BC1D54ACC1001CBDA6 /* WeiboSDK.bundle */,
+				763D78BD1D54ACC1001CBDA6 /* WeiboSDK.h */,
+				763D78BE1D54ACC1001CBDA6 /* WeiboUser.h */,
+			);
+			path = SinaWeiboSDK;
+			sourceTree = "<group>";
+		};
+		763D78BF1D54ACC1001CBDA6 /* WeChatSDK */ = {
+			isa = PBXGroup;
+			children = (
+				763D78C01D54ACC1001CBDA6 /* libWeChatSDK.a */,
+				763D78C11D54ACC1001CBDA6 /* README.txt */,
+				763D78C21D54ACC1001CBDA6 /* WechatAuthSDK.h */,
+				763D78C31D54ACC1001CBDA6 /* WXApi.h */,
+				763D78C41D54ACC1001CBDA6 /* WXApiObject.h */,
+			);
+			path = WeChatSDK;
+			sourceTree = "<group>";
+		};
+		763D78C51D54ACC1001CBDA6 /* Required */ = {
+			isa = PBXGroup;
+			children = (
+				763D78C61D54ACC1001CBDA6 /* MOBFoundation.framework */,
+				763D78C71D54ACC1001CBDA6 /* ShareSDK.bundle */,
+				763D78C81D54ACC1001CBDA6 /* ShareSDKConnector.framework */,
+			);
+			path = Required;
+			sourceTree = "<group>";
+		};
+		7658272C1D556B7700C91EA2 /* FacebookMessengerSDK */ = {
+			isa = PBXGroup;
+			children = (
+				7658272D1D556B7700C91EA2 /* FBSDKMessengerShareKit.framework */,
+			);
+			path = FacebookMessengerSDK;
+			sourceTree = "<group>";
+		};
+		7658272F1D556B8900C91EA2 /* APSocialSDK */ = {
+			isa = PBXGroup;
+			children = (
+				765827301D556B8900C91EA2 /* APOpenAPI.h */,
+				765827311D556B8900C91EA2 /* APOpenAPIObject.h */,
+				765827321D556B8900C91EA2 /* libAPOpenSdk.a */,
+				765827331D556B8900C91EA2 /* README.md */,
+			);
+			path = APSocialSDK;
+			sourceTree = "<group>";
+		};
+		C3BBF00D827F632BEA6DC5EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				763D78E41D54AE15001CBDA6 /* ImageIO.framework */,
+				763D78E21D54AE06001CBDA6 /* MessageUI.framework */,
+				763D78E01D54ADF0001CBDA6 /* libsqlite3.tbd */,
+				763D78DE1D54ADDC001CBDA6 /* JavaScriptCore.framework */,
+				763D78DC1D54ADC9001CBDA6 /* libz.tbd */,
+				763D78DA1D54ADBF001CBDA6 /* libstdc++.tbd */,
+				763D78D81D54AD99001CBDA6 /* libz.1.2.5.tbd */,
+				763D78D61D54AD80001CBDA6 /* libicucore.tbd */,
+				23580C8DC8847E91AD4B74E1 /* Pods_PicDrizzle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8A7EB0A7BB885D5E45FB530 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC9D1920BED941C8E8BCA6C3 /* Pods-PicDrizzle.debug.xcconfig */,
+				984028629FE53AEC4D4648EB /* Pods-PicDrizzle.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +340,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 762816141D3B1051000019FA /* Build configuration list for PBXNativeTarget "PicDrizzle" */;
 			buildPhases = (
+				D675111BFFA19E0B23B99CEA /* [CP] Check Pods Manifest.lock */,
 				762815FE1D3B1051000019FA /* Sources */,
 				762815FF1D3B1051000019FA /* Frameworks */,
 				762816001D3B1051000019FA /* Resources */,
+				C2F8DDA8845B5B7C03959EBD /* [CP] Embed Pods Frameworks */,
+				8F02A5FE402F03A36D7F0274 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -122,35 +394,92 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				763D78CB1D54ACC2001CBDA6 /* ShareSDKUI.bundle in Resources */,
+				76CA718D1D3DC2FB00E7B30C /* Main.storyboard in Resources */,
 				762816101D3B1051000019FA /* LaunchScreen.storyboard in Resources */,
+				763D78CE1D54ACC2001CBDA6 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				763D78D41D54ACC2001CBDA6 /* ShareSDK.bundle in Resources */,
 				7628160D1D3B1051000019FA /* Assets.xcassets in Resources */,
-				7628160B1D3B1051000019FA /* Main.storyboard in Resources */,
+				763D78D21D54ACC2001CBDA6 /* README.txt in Resources */,
+				763D78D01D54ACC2001CBDA6 /* WeiboSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8F02A5FE402F03A36D7F0274 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PicDrizzle/Pods-PicDrizzle-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2F8DDA8845B5B7C03959EBD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PicDrizzle/Pods-PicDrizzle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D675111BFFA19E0B23B99CEA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		762815FE1D3B1051000019FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				762816081D3B1051000019FA /* ViewController.swift in Sources */,
+				76CA718B1D3DC2CC00E7B30C /* settingTableViewController.swift in Sources */,
 				762816061D3B1051000019FA /* AppDelegate.swift in Sources */,
+				762816281D3BB097000019FA /* CustomKoloda.swift in Sources */,
+				763D78A11D547DC8001CBDA6 /* CircleMenuLoader.swift in Sources */,
+				765827351D556B8900C91EA2 /* README.md in Sources */,
+				763D78A51D548D2C001CBDA6 /* PDDownloader.swift in Sources */,
+				7628161A1D3B13B3000019FA /* DisplayViewController.swift in Sources */,
+				762816181D3B1398000019FA /* BaseViewController.swift in Sources */,
+				762816261D3B45CF000019FA /* PDURL.swift in Sources */,
+				763D789D1D547DA4001CBDA6 /* CircleMenu.swift in Sources */,
+				762816221D3B40FB000019FA /* PDNetwork.swift in Sources */,
+				765827371D55B89000C91EA2 /* PDService.swift in Sources */,
+				763D789F1D547DAB001CBDA6 /* CircleMenuButton.swift in Sources */,
+				762816201D3B1819000019FA /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		762816091D3B1051000019FA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7628160A1D3B1051000019FA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7628160E1D3B1051000019FA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -247,23 +576,59 @@
 		};
 		762816151D3B1051000019FA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC9D1920BED941C8E8BCA6C3 /* Pods-PicDrizzle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PicDrizzle/ShareSDK",
+					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/Optional",
+					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/PlatformSDK/QQSDK",
+					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/Required",
+					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/PlatformSDK/FacebookMessengerSDK",
+				);
 				INFOPLIST_FILE = PicDrizzle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sniper.PicDrizzle;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
+					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/PlatformSDK/APSocialSDK",
+				);
+				New_Setting = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.atlantis.PicDrizzle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./PicDrizzle/ShareSDK-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		762816161D3B1051000019FA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 984028629FE53AEC4D4648EB /* Pods-PicDrizzle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PicDrizzle/ShareSDK",
+					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/Optional",
+					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/PlatformSDK/QQSDK",
+					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/Required",
+					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/PlatformSDK/FacebookMessengerSDK",
+				);
 				INFOPLIST_FILE = PicDrizzle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sniper.PicDrizzle;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
+					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/PlatformSDK/APSocialSDK",
+				);
+				New_Setting = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.atlantis.PicDrizzle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./PicDrizzle/ShareSDK-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -286,6 +651,7 @@
 				762816161D3B1051000019FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
