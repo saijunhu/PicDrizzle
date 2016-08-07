@@ -16,9 +16,9 @@ let header:Dictionary = ["Authorization": "Bearer e3cee9eb2e20e4acb3b15214f52eee
 class PDNetwork: NSObject {
     
     
-    static func testRequest(fetchData: JSON -> Void){
+    static func testRequest(page: Int, fetchData: JSON -> Void){
         
-        Alamofire.request(.GET, "https://api.unsplash.com/photos?page=1", headers: header).validate().responseJSON{ response in
+        Alamofire.request(.GET, "https://api.unsplash.com/photos?page=\(page)", headers: header).validate().responseJSON{ response in
             switch response.result {
             case .Success:
                 if let value = response.result.value {

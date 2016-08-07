@@ -20,6 +20,8 @@ import Alamofire
 
 class PreviewViewController: BaseViewController {
     
+    var page: Int = 1
+    
     lazy var menuBtn: CircleMenu = {
         let button = CircleMenu(
             frame: CGRectZero,
@@ -74,7 +76,7 @@ class PreviewViewController: BaseViewController {
     
     lazy var trashBtn: UIButton = {
         let btn = UIButton(type: UIButtonType.Custom)
-//        btn.hidden = true
+        //        btn.hidden = true
         btn.alpha = 0
         btn.imageView?.image = UIImage(named: "ic_close")
         btn.enabled = false
@@ -84,7 +86,7 @@ class PreviewViewController: BaseViewController {
     
     lazy var likeBtn: UIButton = {
         let btn = UIButton(type: UIButtonType.Custom)
-//        btn.hidden = true
+        //        btn.hidden = true
         btn.alpha = 0.8
         btn.imageView?.image = UIImage(named: "ic_favorite")
         btn.enabled = false
@@ -94,7 +96,7 @@ class PreviewViewController: BaseViewController {
     
     lazy var shareBtn: UIButton = {
         let btn = UIButton(type: UIButtonType.Custom)
-//        btn.hidden = true
+        //        btn.hidden = true
         btn.alpha = 0.8
         btn.imageView?.image = UIImage(named: "ic_share")
         btn.enabled = false
@@ -104,7 +106,7 @@ class PreviewViewController: BaseViewController {
     
     lazy var downloadBtn: UIButton = {
         let btn = UIButton(type: UIButtonType.Custom)
-//        btn.hidden = true
+        //        btn.hidden = true
         btn.alpha = 0.8
         btn.imageView?.image = UIImage(named: "ic_download")
         btn.enabled = false
@@ -113,13 +115,13 @@ class PreviewViewController: BaseViewController {
     }()
     
     
-//    lazy var swipeRight: UISwipeGestureRecognizer = {
-//        let swipe = UISwipeGestureRecognizer()
-//        swipe.direction = .Right
-//        swipe.numberOfTouchesRequired = 1
-//        swipe.addTarget(self, action: #selector(swipeRight(_:)))
-//        return swipe
-//    }()
+    //    lazy var swipeRight: UISwipeGestureRecognizer = {
+    //        let swipe = UISwipeGestureRecognizer()
+    //        swipe.direction = .Right
+    //        swipe.numberOfTouchesRequired = 1
+    //        swipe.addTarget(self, action: #selector(swipeRight(_:)))
+    //        return swipe
+    //    }()
     
     
     let items: [(icon: String, color: UIColor)] = [
@@ -157,7 +159,7 @@ class PreviewViewController: BaseViewController {
     var regulars = [NSURL]()
     var fulls = [NSURL](){
         didSet{
-            preFetchData()
+            //            preFetchData()
         }
     }
     var raws:[NSURL] = [NSURL](){
@@ -166,20 +168,21 @@ class PreviewViewController: BaseViewController {
         }
     }
     
+    
     var likeList = [NSURL]()
     var trashList = [NSURL]()
     var downList = [NSURL]()
     var uploadList = [NSURL]()
-
+    
     
     
     
     override func viewDidLoad() {
-
+        
         super.viewDidLoad()
         self.view.addSubview(bgView)
         self.bgView.addSubview(glass)
-//        self.bgView.addSubview(dropView)
+        //        self.bgView.addSubview(dropView)
         self.view.addSubview(menuBtn)
         self.view.addSubview(kolodaView)
         self.view.addSubview(trashBtn)
@@ -187,14 +190,15 @@ class PreviewViewController: BaseViewController {
         self.view.addSubview(shareBtn)
         self.view.addSubview(downloadBtn)
         handleLayout()
-        testgetResources()
-//        getResources(1)
-
-
+        testgetResources(page)
+        //        getResources(1)
+        
+        
     }
     
     override func viewDidDisappear(animated: Bool) {
-        
+        clearResourcesArray()
+        self.page = 0
     }
     
     
@@ -202,9 +206,9 @@ class PreviewViewController: BaseViewController {
 
 // MARK:  Handle something
 extension PreviewViewController {
-    func testgetResources(){
-        
-        PDNetwork.testRequest({ (jsonData) in
+    func testgetResources(page: Int){
+        self.imagesJSON = []
+        PDNetwork.testRequest(page){ (jsonData) in
             //print("------------------------------json comes\(jsonData)")
             //            self.imagesURL.append(<#T##newElement: Element##Element#>)
             guard let Array = jsonData.array else {
@@ -215,7 +219,8 @@ extension PreviewViewController {
                 self.imagesJSON.append(picInfo["urls"])
             }
             print(self.imagesJSON)
-        })
+            self.kolodaView.reloadData()
+        }
         
     }
     
@@ -233,7 +238,7 @@ extension PreviewViewController {
             }
             print(self.imagesJSON)
         }
-
+        
     }
     func handleLayout(){
         
@@ -304,7 +309,14 @@ extension PreviewViewController {
         
     }
     
-
+    func clearResourcesArray(){
+        self.thumbs = []
+        self.smalls = []
+        self.regulars = []
+        self.fulls = []
+        self.raws = []
+    }
+    
 }
 
 // MARK:  Handle the gesture and relevent function
@@ -312,7 +324,7 @@ extension PreviewViewController: ImageDownloaderDelegate{
     //MARK: config gesture function
     func swipeUp(index: Int){
         
-//        ShowShareEditor(index)
+        //        ShowShareEditor(index)
         
     }
     
@@ -325,8 +337,8 @@ extension PreviewViewController: ImageDownloaderDelegate{
             self.trashBtn.hidden = false
             self.trashBtn.backgroundColor = UIColor.redColor()
             self.trashBtn.alpha = 1
-            }) { (_) in
-                self.trashBtn.hidden = true
+        }) { (_) in
+            self.trashBtn.hidden = true
         }
         
     }
@@ -361,7 +373,7 @@ extension PreviewViewController: ImageDownloaderDelegate{
                     if self.downList == [] {
                         HUD.flash(.LabeledSuccess(title: "Download Success", subtitle: nil), delay: 0.5, completion: nil)
                     }
-
+                    
             })
         }
         
@@ -405,16 +417,16 @@ extension PreviewViewController: ImageDownloaderDelegate{
                 break
             }
         }
-
-
+        
+        
     }
-
+    
 }
 
 // MARK:  CircleMenu config
 extension PreviewViewController: CircleMenuDelegate{
     
- 
+    
     func circleMenu(circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
         button.backgroundColor = items[atIndex].color
         button.setImage(UIImage(imageLiteral: items[atIndex].icon), forState: .Normal)
@@ -432,17 +444,17 @@ extension PreviewViewController: CircleMenuDelegate{
     func circleMenu(circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
         print("button did selected: \(atIndex)")
     }
-//    func circleMenu(circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
-//        
-//    }
-//    
-//    func circleMenu(circleMenu: CircleMenu, buttonWillSelected button: UIButton, atIndex: Int) {
-//        
-//    }
-//    
-//    func circleMenu(circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
-//        
-//    }
+    //    func circleMenu(circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
+    //        
+    //    }
+    //    
+    //    func circleMenu(circleMenu: CircleMenu, buttonWillSelected button: UIButton, atIndex: Int) {
+    //        
+    //    }
+    //    
+    //    func circleMenu(circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
+    //        
+    //    }
 }
 
 //MARK: KolodaViewDelegate
@@ -452,6 +464,11 @@ extension PreviewViewController: KolodaViewDelegate {
         //        dataSource.insert(UIImage(named: "Card_like_6")!, atIndex: kolodaView.currentCardIndex - 1)
         //        let position = kolodaView.currentCardIndex
         //        kolodaView.insertCardAtIndexRange(position...position, animated: true)
+        //        clearResourcesArray()
+        //        testgetResources(2)
+        //        
+        //        kolodaView.insertCardAtIndexRange(0...9, animated: true)
+        //        kolodaView.reloadData()
     }
     
     func koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt) {
@@ -468,7 +485,7 @@ extension PreviewViewController: KolodaViewDelegate {
     func koloda(koloda: KolodaView, allowedDirectionsForIndex index: UInt) -> [SwipeResultDirection] {
         return [.Left,.Right,.Up,.Down]
     }
-
+    
     func koloda(koloda: KolodaView, shouldSwipeCardAtIndex index: UInt, inDirection direction: SwipeResultDirection) -> Bool {
         print(direction.hashValue)
         
@@ -485,8 +502,8 @@ extension PreviewViewController: KolodaViewDelegate {
             }) { (_) in
                 self.trashBtn.hidden = true
             }
-           return true
-
+            return true
+            
         }
         if direction == SwipeResultDirection.Down{
             swipeDown(Int(index))
@@ -514,28 +531,35 @@ extension PreviewViewController: KolodaViewDelegate {
             print("listen right")
         }
         if direction == SwipeResultDirection.Down{
-//            swipeDown(Int(index))
+            //            swipeDown(Int(index))
             print("listen down")
+        }
+        
+        if index%6 == 0 {
+            page += 1
+            testgetResources(page)
+            kolodaView.reloadData()
         }
     }
     
-
+    
 }
 
 //MARK: KolodaViewDataSource
 extension PreviewViewController: KolodaViewDataSource {
     
     func kolodaNumberOfCards(koloda:KolodaView) -> UInt {
-        return 10
+        return UInt(smalls.count) ?? 10
     }
     
     func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
         var imageUrl = NSURL()
         var bgUrl = NSURL()
-        if self.smalls.count==10{
+        if self.smalls.count != 0{
             
             imageUrl = self.smalls[Int(index)]
             bgUrl = self.smalls[ (Int(index)-2 > (-1)) ? Int(index-2) : 0  ]
+            
         }
         
         let imageView = UIImageView()
