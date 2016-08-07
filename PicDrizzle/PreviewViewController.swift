@@ -16,8 +16,7 @@ import Moya
 import Alamofire
 
 
-let WIDTH = UIScreen.mainScreen().bounds.size.width
-let HEIGHT = UIScreen.mainScreen().bounds.size.height
+
 
 class PreviewViewController: BaseViewController {
     
@@ -188,28 +187,8 @@ class PreviewViewController: BaseViewController {
         self.view.addSubview(shareBtn)
         self.view.addSubview(downloadBtn)
         handleLayout()
-        Alamofire.request(.GET, "https://api.unsplash.com/photos?page=1", headers: header).validate().responseJSON{ response in
-            switch response.result {
-            case .Success:
-                if let value = response.result.value {
-                    let json = JSON(value)
-                    debugPrint(json)
-                    if json["errors"].string != nil{
-//                        showError("request refuesd")
-                        debugPrint("request refused")
-                    }else{
-                        debugPrint("request success")
-//                        return fetchData(json)
-                    }
-                    print("network success")
-                }
-            case .Failure(let error):
-//                showError(error.description)
-                print("network failed")
-                
-            }
-        }
-        getResources(1)
+        testgetResources()
+//        getResources(1)
 
 
     }
@@ -223,6 +202,23 @@ class PreviewViewController: BaseViewController {
 
 // MARK:  Handle something
 extension PreviewViewController {
+    func testgetResources(){
+        
+        PDNetwork.testRequest({ (jsonData) in
+            //print("------------------------------json comes\(jsonData)")
+            //            self.imagesURL.append(<#T##newElement: Element##Element#>)
+            guard let Array = jsonData.array else {
+                return
+            }
+            for picInfo in Array{
+                print(picInfo["id"].string)
+                self.imagesJSON.append(picInfo["urls"])
+            }
+            print(self.imagesJSON)
+        })
+        
+    }
+    
     func getResources(page: Int){
         
         PDNetwork.Request(.getImageResources(page: page)) { (jsonData) in

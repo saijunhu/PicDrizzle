@@ -16,31 +16,31 @@ let header:Dictionary = ["Authorization": "Bearer e3cee9eb2e20e4acb3b15214f52eee
 class PDNetwork: NSObject {
     
     
-//    static func testRequest(fetchData: JSON -> Void){
-//        
-//        Alamofire.request(.GET, "https://api.unsplash.com/photos?page=1", headers: header).validate().responseJSON{ response in
-//            switch response.result {
-//            case .Success:
-//                if let value = response.result.value {
-//                    let json = JSON(value)
-//                    debugPrint(json)
-//                    if json["errors"].string != nil{
-//                        showError("request refuesd")
-//                        debugPrint("request refused")
-//                    }else{
-//                        debugPrint("request success")
-//                        return fetchData(json)
-//                    }
-//                    print("network success")
-//                }
-//            case .Failure(let error):
-//                showError(error.description)
-//                print("network failed")
-//                
-//            }
-//        }
-//        
-//    }
+    static func testRequest(fetchData: JSON -> Void){
+        
+        Alamofire.request(.GET, "https://api.unsplash.com/photos?page=1", headers: header).validate().responseJSON{ response in
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    let json = JSON(value)
+                    debugPrint(json)
+                    if json["errors"].string != nil{
+                        showError("request refuesd")
+                        debugPrint("request refused")
+                    }else{
+                        debugPrint("request success")
+                        return fetchData(json)
+                    }
+                    print("network success")
+                }
+            case .Failure(let error):
+                showError(error.description)
+                print("network failed")
+                
+            }
+        }
+        
+    }
     
     static func Request(target: PDService, fetchData: JSON -> Void) {
         
