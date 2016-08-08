@@ -95,7 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         self.window = UIWindow(frame:UIScreen.mainScreen().bounds)
-        let pVC = PreviewViewController()
+        let pVC = UINavigationController(rootViewController: PreviewViewController(isHomePage: true))
         self.window!.rootViewController = pVC
         self.window!.makeKeyAndVisible()
         return true

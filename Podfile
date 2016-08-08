@@ -8,7 +8,8 @@ target ’PicDrizzle’ do
     pod 'Moya'
 
 	pod 'PKHUD'
-
+	pod 'SwiftyUserDefaults'
+	
 	pod 'Koloda', '~> 3.1.1'
 
  	pod 'SnapKit'

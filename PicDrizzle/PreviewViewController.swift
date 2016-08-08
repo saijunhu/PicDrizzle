@@ -14,13 +14,15 @@ import Kingfisher
 import PKHUD
 import Moya
 import Alamofire
+import SwiftyUserDefaults
 
 
-
-
+//TODO: fix the bug, when the number of user likes less than 10, the array index passed
 class PreviewViewController: BaseViewController {
     
     var page: Int = 1
+    
+    var isHomePage = true
     
     lazy var menuBtn: CircleMenu = {
         let button = CircleMenu(
@@ -143,6 +145,7 @@ class PreviewViewController: BaseViewController {
         didSet{
             if imagesJSON.count>9{
                 for urls in imagesJSON{
+                    
                     self.thumbs.append(NSURL(string: urls["thumb"].string!)!)
                     self.smalls.append(NSURL(string: urls["small"].string!)!)
                     self.regulars.append(NSURL(string: urls["regular"].string!)!)
@@ -154,6 +157,7 @@ class PreviewViewController: BaseViewController {
         }
     }
     
+    var ids = [String]()
     var thumbs = [NSURL]()
     var smalls = [NSURL]()
     var regulars = [NSURL]()
@@ -169,36 +173,50 @@ class PreviewViewController: BaseViewController {
     }
     
     
-    var likeList = [NSURL]()
+    var likeList = Set<SingleImage>()
     var trashList = [NSURL]()
     var downList = [NSURL]()
     var uploadList = [NSURL]()
     
+    init(isHomePage: Bool){
+        super.init(nibName: nil, bundle: nil)
+        self.isHomePage = isHomePage
+    }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
+        //        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.navigationBarHidden = false
+        
         self.view.addSubview(bgView)
         self.bgView.addSubview(glass)
         //        self.bgView.addSubview(dropView)
-        self.view.addSubview(menuBtn)
+        isHomePage ? self.view.addSubview(menuBtn) : print()
         self.view.addSubview(kolodaView)
         self.view.addSubview(trashBtn)
         self.view.addSubview(likeBtn)
         self.view.addSubview(shareBtn)
         self.view.addSubview(downloadBtn)
+        //        isHomePage ? self.navigationController?.navigationBar.alpha = 0 : debugPrint("forbid")
+        Defaults[.username] = "crazyatlantis"
+        chooseTarget()
+        
         handleLayout()
-        testgetResources(page)
-        //        getResources(1)
+        //        testgetResources(page)
+        
         
         
     }
     
     override func viewDidDisappear(animated: Bool) {
-        clearResourcesArray()
-        self.page = 0
+        //        clearResourcesArray()
+        self.page = 1
     }
     
     
@@ -206,34 +224,24 @@ class PreviewViewController: BaseViewController {
 
 // MARK:  Handle something
 extension PreviewViewController {
-    func testgetResources(page: Int){
-        self.imagesJSON = []
-        PDNetwork.testRequest(page){ (jsonData) in
-            //print("------------------------------json comes\(jsonData)")
-            //            self.imagesURL.append(<#T##newElement: Element##Element#>)
-            guard let Array = jsonData.array else {
-                return
-            }
-            for picInfo in Array{
-                print(picInfo["id"].string)
-                self.imagesJSON.append(picInfo["urls"])
-            }
-            print(self.imagesJSON)
-            self.kolodaView.reloadData()
-        }
-        
-    }
     
-    func getResources(page: Int){
-        
-        PDNetwork.Request(.getImageResources(page: page)) { (jsonData) in
+    func chooseTarget(){
+        if isHomePage{
+            getResources(.getImageResources(page: self.page))
+        }else{
+            getResources(.userLikePhotos(user: Defaults[.username]!, page: self.page))
+        }
+    }
+    func getResources(target: PDService){
+        self.imagesJSON = []
+        PDNetwork.Request(target) { (jsonData) in
             //print("------------------------------json comes\(jsonData)")
             //            self.imagesURL.append(<#T##newElement: Element##Element#>)
             guard let Array = jsonData.array else {
                 return
             }
             for picInfo in Array{
-                print(picInfo["id"].string)
+                self.ids.append(picInfo["id"].string ?? "")
                 self.imagesJSON.append(picInfo["urls"])
             }
             print(self.imagesJSON)
@@ -257,12 +265,12 @@ extension PreviewViewController {
             make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(80, 40, 120, 40))
         }
         
-        menuBtn.snp_makeConstraints{ (make) in
+        isHomePage ? menuBtn.snp_makeConstraints{ (make) in
             make.width.equalTo(50)
             make.height.equalTo(50)
             make.centerX.equalTo(self.view.snp_centerX)
             make.bottom.equalTo(self.view.snp_bottom).offset(-30)
-        }
+            } : debugPrint("forbid")
         
         trashBtn.snp_makeConstraints{ make in
             make.width.equalTo(50)
@@ -315,6 +323,7 @@ extension PreviewViewController {
         self.regulars = []
         self.fulls = []
         self.raws = []
+        self.ids = []
     }
     
 }
@@ -344,15 +353,21 @@ extension PreviewViewController: ImageDownloaderDelegate{
     }
     
     func swipeRight(index: Int){
-        if self.smalls.count>0{
-            self.trashList.append(self.smalls[index])
-        }
-        
-        UIView.animateWithDuration(0.1, delay: 0.5, options: [], animations: {
-            self.likeBtn.hidden = false
-            self.likeBtn.alpha = 1
-        }) { (_) in
-            self.likeBtn.hidden = true
+        if isHomePage{
+            if self.smalls[index] != "" {
+                self.likeList.insert(SingleImage(id: self.ids[index], thumb: self.thumbs[index], small: self.smalls[index], regular: self.regulars[index], full: self.fulls[index], raw: self.raws[index]))
+            }
+            
+            getResources(.likePhoto(photoID: self.ids[index]))
+            
+            UIView.animateWithDuration(0.1, delay: 0.5, options: [], animations: {
+                self.likeBtn.hidden = false
+                self.likeBtn.alpha = 1
+            }) { (_) in
+                self.likeBtn.hidden = true
+            }
+        } else {
+            getResources(.unlikePhoto(photoID: self.ids[index]))
         }
     }
     
@@ -386,8 +401,10 @@ extension PreviewViewController: ImageDownloaderDelegate{
     }
     
     func imageDownloader(downloader: ImageDownloader, didDownloadImage image: Image, forURL URL: NSURL, withResponse response: NSURLResponse) {
-        let index = self.downList.indexOf(URL)
-        self.downList.removeAtIndex(index!)
+        if let index = self.downList.indexOf(URL){
+            
+            self.downList.removeAtIndex(index)
+        }
     }
     
     func ShowShareEditor(index: Int) {
@@ -443,18 +460,12 @@ extension PreviewViewController: CircleMenuDelegate{
     
     func circleMenu(circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
         print("button did selected: \(atIndex)")
+        if atIndex == 4 {
+            self.navigationController?.pushViewController(PreviewViewController(isHomePage: false), animated: true)
+            //            self.navigationBar.
+        }
     }
-    //    func circleMenu(circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
-    //        
-    //    }
-    //    
-    //    func circleMenu(circleMenu: CircleMenu, buttonWillSelected button: UIButton, atIndex: Int) {
-    //        
-    //    }
-    //    
-    //    func circleMenu(circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
-    //        
-    //    }
+    
 }
 
 //MARK: KolodaViewDelegate
@@ -534,12 +545,14 @@ extension PreviewViewController: KolodaViewDelegate {
             //            swipeDown(Int(index))
             print("listen down")
         }
-        
+        //TODO : fix this problem
         if index%6 == 0 {
             page += 1
-            testgetResources(page)
+            chooseTarget()
             kolodaView.reloadData()
         }
+        
+        
     }
     
     
@@ -549,10 +562,11 @@ extension PreviewViewController: KolodaViewDelegate {
 extension PreviewViewController: KolodaViewDataSource {
     
     func kolodaNumberOfCards(koloda:KolodaView) -> UInt {
-        return UInt(smalls.count) ?? 10
+        return UInt(smalls.count)
     }
     
     func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
+        
         var imageUrl = NSURL()
         var bgUrl = NSURL()
         if self.smalls.count != 0{

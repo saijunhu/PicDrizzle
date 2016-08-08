@@ -15,6 +15,9 @@ enum PDService {
     case login(email: String, password: String)
     case register(email:String, password: String )
     case getImageResources(page: Int)
+    case userLikePhotos(user: String, page: Int)
+    case likePhoto(photoID: String)
+    case unlikePhoto(photoID: String)
 }
 // MARK: - TargetType Protocol Implementation
 extension PDService: TargetType {
@@ -28,22 +31,34 @@ extension PDService: TargetType {
             return "/users"
         case .register(_, _):
             return "/users"
-        case .getImageResources(let page):
-            return "/photos?page=\(page)"
+        case .getImageResources(_):
+            return "photos/curated"
+        case .userLikePhotos(let user,_):
+            return "/users/\(user)/likes"
+        case .likePhoto(let id):
+            return "/photos/\(id)/like"
+        case .unlikePhoto(let id):
+            return "/photos/\(id)/like"
         }
     }
     var method: Moya.Method {
         switch self {
-        case .getImageResources:
+        case .getImageResources, .userLikePhotos:
             return .GET
-        case .login, .register:
+        case .login, .register,.likePhoto:
             return .POST
+        case .unlikePhoto:
+            return .DELETE
         }
     }
     var parameters: [String: AnyObject]? {
         switch self {
-        case .login, .getImageResources:
+        case .login, .likePhoto, .unlikePhoto:
             return [:]
+        case .getImageResources(let page):
+            return ["page": page]
+        case .userLikePhotos( _, let page):
+            return ["page": page]
         case .register(let email, let password):
             return ["email": email, "password": password]
         }
@@ -60,10 +75,10 @@ extension PDService: TargetType {
         return NSData()
     }
 
-    var multipartBody: [MultipartFormData]? {
-        // Optional
-        return nil
-    }
+//    var multipartBody: [MultipartFormData]? {
+//        // Optional
+//        return nil
+//    }
 }
 
 let myEndpointClosure = { (target: PDService) -> Endpoint<PDService> in
@@ -71,6 +86,8 @@ let myEndpointClosure = { (target: PDService) -> Endpoint<PDService> in
     let endpoint: Endpoint<PDService> = Endpoint<PDService>(URL: url, sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
     let headers = headerForTarget(.getImageResources(page: 1))
     return endpoint.endpointByAddingHTTPHeaderFields(headers)
+//    return endpoint.endpointByAddingHTTPHeaderFields(["Authorization": "Bearer e3cee9eb2e20e4acb3b15214f52eee60f29831880e11c4bad6aa98e5dab55289"])
+    
 }
 
 
@@ -83,6 +100,8 @@ let requestClosure = { (endpoint: Endpoint<PDService>, done: NSURLRequest -> Voi
 }
 
 let provider = MoyaProvider<PDService>(endpointClosure: myEndpointClosure)
+//let provider = MoyaProvider<PDService>(endpointClosure: myEndpointClosure, requestClosure: MoyaProvider.RequestClosure, stubClosure: MoyaProvider.StubClosure, manager: MoyaProvider.DefaultAlamofireManager(), plugins: [NetworkActivityPlugin])
+
 //        let provider = MoyaProvider<PDService>()
 
 
@@ -103,7 +122,7 @@ func headerForTarget(target: PDService) -> [String: String]{
     switch target {
     case .getImageResources(_):
         return ["Authorization": "Bearer e3cee9eb2e20e4acb3b15214f52eee60f29831880e11c4bad6aa98e5dab55289"]
-    default: return [:]
+    default: return ["Authorization": "Bearer e3cee9eb2e20e4acb3b15214f52eee60f29831880e11c4bad6aa98e5dab55289"]
     }
 }
 

@@ -15,7 +15,6 @@
 		7628161A1D3B13B3000019FA /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762816191D3B13B3000019FA /* DisplayViewController.swift */; };
 		762816201D3B1819000019FA /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7628161F1D3B1819000019FA /* PreviewViewController.swift */; };
 		762816221D3B40FB000019FA /* PDNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762816211D3B40FA000019FA /* PDNetwork.swift */; };
-		762816261D3B45CF000019FA /* PDURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762816251D3B45CF000019FA /* PDURL.swift */; };
 		762816281D3BB097000019FA /* CustomKoloda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762816271D3BB097000019FA /* CustomKoloda.swift */; };
 		763D789D1D547DA4001CBDA6 /* CircleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D789C1D547DA4001CBDA6 /* CircleMenu.swift */; };
 		763D789F1D547DAB001CBDA6 /* CircleMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D789E1D547DAB001CBDA6 /* CircleMenuButton.swift */; };
@@ -47,6 +46,8 @@
 		765827351D556B8900C91EA2 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 765827331D556B8900C91EA2 /* README.md */; };
 		765827371D55B89000C91EA2 /* PDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765827361D55B89000C91EA2 /* PDService.swift */; };
 		7678DC191D56B62E000DEE9D /* PDHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678DC181D56B62E000DEE9D /* PDHelper.swift */; };
+		7678DC1F1D574036000DEE9D /* SingleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678DC1E1D574036000DEE9D /* SingleImage.swift */; };
+		7678DC271D581D76000DEE9D /* PDUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678DC261D581D76000DEE9D /* PDUserDefaults.swift */; };
 		76CA718B1D3DC2CC00E7B30C /* settingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CA718A1D3DC2CC00E7B30C /* settingTableViewController.swift */; };
 		76CA718D1D3DC2FB00E7B30C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76CA718C1D3DC2FB00E7B30C /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -62,7 +63,6 @@
 		762816191D3B13B3000019FA /* DisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		7628161F1D3B1819000019FA /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		762816211D3B40FA000019FA /* PDNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDNetwork.swift; sourceTree = "<group>"; };
-		762816251D3B45CF000019FA /* PDURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDURL.swift; sourceTree = "<group>"; };
 		762816271D3BB097000019FA /* CustomKoloda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomKoloda.swift; sourceTree = "<group>"; };
 		762D09501D54E2EC007AF7D7 /* ShareSDK-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ShareSDK-Bridging-Header.h"; path = "PicDrizzle/ShareSDK-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		763D789C1D547DA4001CBDA6 /* CircleMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleMenu.swift; sourceTree = "<group>"; };
@@ -111,6 +111,8 @@
 		765827331D556B8900C91EA2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		765827361D55B89000C91EA2 /* PDService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDService.swift; sourceTree = "<group>"; };
 		7678DC181D56B62E000DEE9D /* PDHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDHelper.swift; sourceTree = "<group>"; };
+		7678DC1E1D574036000DEE9D /* SingleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleImage.swift; sourceTree = "<group>"; };
+		7678DC261D581D76000DEE9D /* PDUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDUserDefaults.swift; sourceTree = "<group>"; };
 		76CA718A1D3DC2CC00E7B30C /* settingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingTableViewController.swift; sourceTree = "<group>"; };
 		76CA718C1D3DC2FB00E7B30C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		984028629FE53AEC4D4648EB /* Pods-PicDrizzle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicDrizzle.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicDrizzle/Pods-PicDrizzle.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,24 +170,18 @@
 		762816041D3B1051000019FA /* PicDrizzle */ = {
 			isa = PBXGroup;
 			children = (
+				7678DC201D58176E000DEE9D /* View */,
+				7678DC211D581778000DEE9D /* Controller */,
+				7678DC221D581782000DEE9D /* Model */,
+				7678DC231D5817AD000DEE9D /* Network */,
+				7678DC251D581859000DEE9D /* PDUtilities */,
 				763D78A61D54ACC0001CBDA6 /* ShareSDK */,
-				762D09501D54E2EC007AF7D7 /* ShareSDK-Bridging-Header.h */,
 				762816051D3B1051000019FA /* AppDelegate.swift */,
-				762816171D3B1398000019FA /* BaseViewController.swift */,
-				7628161F1D3B1819000019FA /* PreviewViewController.swift */,
-				762816191D3B13B3000019FA /* DisplayViewController.swift */,
-				762816211D3B40FA000019FA /* PDNetwork.swift */,
-				765827361D55B89000C91EA2 /* PDService.swift */,
-				763D78A41D548D2C001CBDA6 /* PDDownloader.swift */,
-				762816251D3B45CF000019FA /* PDURL.swift */,
 				7628160C1D3B1051000019FA /* Assets.xcassets */,
 				7628160E1D3B1051000019FA /* LaunchScreen.storyboard */,
 				762816111D3B1051000019FA /* Info.plist */,
-				762816271D3BB097000019FA /* CustomKoloda.swift */,
-				76CA718A1D3DC2CC00E7B30C /* settingTableViewController.swift */,
 				76CA718C1D3DC2FB00E7B30C /* Main.storyboard */,
-				763D78A21D5485C3001CBDA6 /* CircleMenu */,
-				7678DC181D56B62E000DEE9D /* PDHelper.swift */,
+				7678DC261D581D76000DEE9D /* PDUserDefaults.swift */,
 			);
 			path = PicDrizzle;
 			sourceTree = "<group>";
@@ -203,6 +199,7 @@
 		763D78A61D54ACC0001CBDA6 /* ShareSDK */ = {
 			isa = PBXGroup;
 			children = (
+				762D09501D54E2EC007AF7D7 /* ShareSDK-Bridging-Header.h */,
 				763D78A71D54ACC1001CBDA6 /* ShareSDK.framework */,
 				763D78A81D54ACC1001CBDA6 /* Support */,
 			);
@@ -309,6 +306,52 @@
 				765827331D556B8900C91EA2 /* README.md */,
 			);
 			path = APSocialSDK;
+			sourceTree = "<group>";
+		};
+		7678DC201D58176E000DEE9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				762816271D3BB097000019FA /* CustomKoloda.swift */,
+				763D78A21D5485C3001CBDA6 /* CircleMenu */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7678DC211D581778000DEE9D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				762816171D3B1398000019FA /* BaseViewController.swift */,
+				7628161F1D3B1819000019FA /* PreviewViewController.swift */,
+				762816191D3B13B3000019FA /* DisplayViewController.swift */,
+				76CA718A1D3DC2CC00E7B30C /* settingTableViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		7678DC221D581782000DEE9D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7678DC1E1D574036000DEE9D /* SingleImage.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7678DC231D5817AD000DEE9D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				765827361D55B89000C91EA2 /* PDService.swift */,
+				762816211D3B40FA000019FA /* PDNetwork.swift */,
+				763D78A41D548D2C001CBDA6 /* PDDownloader.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		7678DC251D581859000DEE9D /* PDUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				7678DC181D56B62E000DEE9D /* PDHelper.swift */,
+			);
+			name = PDUtilities;
 			sourceTree = "<group>";
 		};
 		C3BBF00D827F632BEA6DC5EF /* Frameworks */ = {
@@ -464,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7678DC191D56B62E000DEE9D /* PDHelper.swift in Sources */,
+				7678DC1F1D574036000DEE9D /* SingleImage.swift in Sources */,
 				76CA718B1D3DC2CC00E7B30C /* settingTableViewController.swift in Sources */,
 				762816061D3B1051000019FA /* AppDelegate.swift in Sources */,
 				762816281D3BB097000019FA /* CustomKoloda.swift in Sources */,
@@ -472,7 +516,7 @@
 				763D78A51D548D2C001CBDA6 /* PDDownloader.swift in Sources */,
 				7628161A1D3B13B3000019FA /* DisplayViewController.swift in Sources */,
 				762816181D3B1398000019FA /* BaseViewController.swift in Sources */,
-				762816261D3B45CF000019FA /* PDURL.swift in Sources */,
+				7678DC271D581D76000DEE9D /* PDUserDefaults.swift in Sources */,
 				763D789D1D547DA4001CBDA6 /* CircleMenu.swift in Sources */,
 				762816221D3B40FB000019FA /* PDNetwork.swift in Sources */,
 				765827371D55B89000C91EA2 /* PDService.swift in Sources */,
