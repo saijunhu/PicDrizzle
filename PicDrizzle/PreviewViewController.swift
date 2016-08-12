@@ -33,7 +33,7 @@ class PreviewViewController: BaseViewController {
             duration: 4,
             distance: 60)
         button.delegate = self
-        button.backgroundColor = UIColor.blueColor()
+        button.backgroundColor = nil
         button.layer.cornerRadius = button.frame.size.width / 2.0
         return button
     }()
@@ -76,20 +76,25 @@ class PreviewViewController: BaseViewController {
         return view
     }()
     
-    lazy var trashBtn: UIButton = {
+    lazy var animationView:UIView = {
+        let view = UIView()
+        view.alpha = 1
+        return view
+    }()
+    
+    lazy var passBtn: UIButton = {
         let btn = UIButton(type: UIButtonType.Custom)
         //        btn.hidden = true
-        btn.alpha = 0
+        btn.alpha = 1
         btn.imageView?.image = UIImage(named: "ic_close")
         btn.enabled = false
-        btn.backgroundColor = UIColor.blueColor()
         return btn
     }()
     
     lazy var likeBtn: UIButton = {
         let btn = UIButton(type: UIButtonType.Custom)
         //        btn.hidden = true
-        btn.alpha = 0.8
+        btn.alpha = 1
         btn.imageView?.image = UIImage(named: "ic_favorite")
         btn.enabled = false
         btn.backgroundColor = nil
@@ -99,7 +104,7 @@ class PreviewViewController: BaseViewController {
     lazy var shareBtn: UIButton = {
         let btn = UIButton(type: UIButtonType.Custom)
         //        btn.hidden = true
-        btn.alpha = 0.8
+        btn.alpha = 1
         btn.imageView?.image = UIImage(named: "ic_share")
         btn.enabled = false
         btn.backgroundColor = nil
@@ -109,21 +114,12 @@ class PreviewViewController: BaseViewController {
     lazy var downloadBtn: UIButton = {
         let btn = UIButton(type: UIButtonType.Custom)
         //        btn.hidden = true
-        btn.alpha = 0.8
+        btn.alpha = 1
         btn.imageView?.image = UIImage(named: "ic_download")
         btn.enabled = false
         btn.backgroundColor = nil
         return btn
     }()
-    
-    
-    //    lazy var swipeRight: UISwipeGestureRecognizer = {
-    //        let swipe = UISwipeGestureRecognizer()
-    //        swipe.direction = .Right
-    //        swipe.numberOfTouchesRequired = 1
-    //        swipe.addTarget(self, action: #selector(swipeRight(_:)))
-    //        return swipe
-    //    }()
     
     
     let items: [(icon: String, color: UIColor)] = [
@@ -199,10 +195,10 @@ class PreviewViewController: BaseViewController {
         //        self.bgView.addSubview(dropView)
         isHomePage ? self.view.addSubview(menuBtn) : print()
         self.view.addSubview(kolodaView)
-        self.view.addSubview(trashBtn)
-        self.view.addSubview(likeBtn)
-        self.view.addSubview(shareBtn)
-        self.view.addSubview(downloadBtn)
+        self.view.addSubview(self.shareBtn)
+        self.view.addSubview(self.downloadBtn)
+        self.view.addSubview(self.passBtn)
+        self.view.addSubview(self.likeBtn)
         //        isHomePage ? self.navigationController?.navigationBar.alpha = 0 : debugPrint("forbid")
         Defaults[.username] = "crazyatlantis"
         chooseTarget()
@@ -272,7 +268,7 @@ extension PreviewViewController {
             make.bottom.equalTo(self.view.snp_bottom).offset(-30)
             } : debugPrint("forbid")
         
-        trashBtn.snp_makeConstraints{ make in
+        passBtn.snp_makeConstraints{ make in
             make.width.equalTo(50)
             make.height.equalTo(50)
             make.centerY.equalTo(self.view.snp_centerY)
@@ -342,14 +338,6 @@ extension PreviewViewController: ImageDownloaderDelegate{
             self.trashList.append(self.smalls[index])
         }
         
-        UIView.animateWithDuration(0.1, delay: 0.5, options: [], animations: {
-            self.trashBtn.hidden = false
-            self.trashBtn.backgroundColor = UIColor.redColor()
-            self.trashBtn.alpha = 1
-        }) { (_) in
-            self.trashBtn.hidden = true
-        }
-        
     }
     
     func swipeRight(index: Int){
@@ -360,12 +348,6 @@ extension PreviewViewController: ImageDownloaderDelegate{
             
             getResources(.likePhoto(photoID: self.ids[index]))
             
-            UIView.animateWithDuration(0.1, delay: 0.5, options: [], animations: {
-                self.likeBtn.hidden = false
-                self.likeBtn.alpha = 1
-            }) { (_) in
-                self.likeBtn.hidden = true
-            }
         } else {
             getResources(.unlikePhoto(photoID: self.ids[index]))
         }
@@ -392,12 +374,6 @@ extension PreviewViewController: ImageDownloaderDelegate{
             })
         }
         
-        UIView.animateWithDuration(0.1, delay: 0.5, options: [], animations: {
-            self.downloadBtn.hidden = false
-            self.downloadBtn.alpha = 1
-        }) { (_) in
-            self.downloadBtn.hidden = true
-        }
     }
     
     func imageDownloader(downloader: ImageDownloader, didDownloadImage image: Image, forURL URL: NSURL, withResponse response: NSURLResponse) {
@@ -438,6 +414,85 @@ extension PreviewViewController: ImageDownloaderDelegate{
         
     }
     
+}
+// MARK: handle the animations in four direction
+extension PreviewViewController {
+    func upAnimation() {
+        self.animationView.frame = CGRectMake(0, 0, WIDTH, 20)
+        self.animationView.backgroundColor = UIColor.blueColor()
+        self.view.insertSubview(animationView, belowSubview: self.shareBtn)
+        
+        UIView.animateWithDuration(0.5,
+                                   delay: 0,
+                                   options: UIViewAnimationOptions.CurveEaseIn,
+                                   animations: { 
+                                    self.animationView.alpha = 0
+                                    self.shareBtn.alpha = 0
+        }) { (_) in
+            self.animationView.removeFromSuperview()
+            self.animationView.alpha = 1
+            self.shareBtn.alpha = 1
+        }
+    }
+    
+    func downAnimation() {
+        self.animationView.frame = CGRectMake(0, HEIGHT+20, WIDTH, 20)
+        self.animationView.backgroundColor = UIColor ( red: 0.3039, green: 0.68, blue: 0.2898, alpha: 1.0 )
+        self.view.insertSubview(animationView, belowSubview: self.downloadBtn)
+        
+        UIView.animateWithDuration(1,
+                                   delay: 0,
+                                   options: UIViewAnimationOptions.CurveEaseIn,
+                                   animations: {
+                                    self.animationView.alpha = 0
+                                    self.downloadBtn.alpha = 0
+//                                    self.animationView.frame.size.height -= 20  
+                                    self.animationView.center.y = HEIGHT-10
+        }) { (_) in
+            self.animationView.removeFromSuperview()
+            self.animationView.alpha = 1
+            self.shareBtn.alpha = 1
+        }
+    }
+    
+    func leftAnimation() {
+        self.animationView.frame = CGRectMake(-20, 0, 20 , HEIGHT)
+        self.animationView.backgroundColor = UIColor ( red: 0.92, green: 0.618, blue: 0.2425, alpha: 1.0 )
+        self.view.insertSubview(animationView, belowSubview: self.passBtn)
+        
+        UIView.animateWithDuration(0.8,
+                                   delay: 0,
+                                   options: UIViewAnimationOptions.CurveEaseIn,
+                                   animations: {
+                                    self.animationView.alpha = 0
+                                    self.passBtn.alpha = 0
+                                    self.animationView.center.x = 10
+        }) { (_) in
+            self.animationView.removeFromSuperview()
+            self.animationView.alpha = 1
+            self.shareBtn.alpha = 1
+        }
+        
+    }
+    
+    func rightAnimation() {
+        self.animationView.frame = CGRectMake(WIDTH+20, 0 , 20, HEIGHT)
+        self.animationView.backgroundColor = isHomePage ? UIColor.init(red: 0.2073, green: 0.4638, blue: 0.7454, alpha: 1.0) : UIColor ( red: 0.851, green: 0.3255, blue: 0.3098, alpha: 1.0 )
+        self.view.insertSubview(animationView, belowSubview: self.likeBtn)
+        UIView.animateWithDuration(1,
+                                   delay: 0,
+                                   options: UIViewAnimationOptions.CurveEaseIn,
+                                   animations: {
+                                    self.animationView.alpha = 0
+                                    self.likeBtn.alpha = 0
+                                    self.animationView.center.x = WIDTH-10
+        }) { (_) in
+            self.animationView.removeFromSuperview()
+            self.animationView.alpha = 1
+            self.shareBtn.alpha = 1
+        }
+        
+    }
 }
 
 // MARK:  CircleMenu config
@@ -502,25 +557,21 @@ extension PreviewViewController: KolodaViewDelegate {
         
         if direction == SwipeResultDirection.Up{
             ShowShareEditor(Int(index))
+//            upAnimation()
             return false
         }
         if direction == SwipeResultDirection.Left{
-            UIView.animateWithDuration(0.1, delay: 0.5, options: [], animations: {
-                self.view.bringSubviewToFront(self.trashBtn)
-                self.trashBtn.hidden = false
-                self.trashBtn.backgroundColor = UIColor.redColor()
-                self.trashBtn.alpha = 1
-            }) { (_) in
-                self.trashBtn.hidden = true
-            }
+            leftAnimation()
             return true
             
         }
         if direction == SwipeResultDirection.Down{
-            swipeDown(Int(index))
-            return false
+            downAnimation()
+            
+            return true
         }
         if direction == SwipeResultDirection.Right{
+            rightAnimation()
             return true 
         }
         return false
@@ -542,7 +593,7 @@ extension PreviewViewController: KolodaViewDelegate {
             print("listen right")
         }
         if direction == SwipeResultDirection.Down{
-            //            swipeDown(Int(index))
+            swipeDown(Int(index))
             print("listen down")
         }
         //TODO : fix this problem
@@ -577,7 +628,7 @@ extension PreviewViewController: KolodaViewDataSource {
         }
         
         let imageView = UIImageView()
-        imageView .layer.borderColor = UIColor.darkGrayColor().CGColor
+        imageView .layer.borderColor = UIColor ( red: 0.702, green: 0.702, blue: 0.702, alpha: 1.0 ).CGColor
         imageView .layer.borderWidth = 4
         imageView .layer.cornerRadius = 3
         imageView.kf_setImageWithURL(imageUrl, placeholderImage: UIImage(named: "drop_bg"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
