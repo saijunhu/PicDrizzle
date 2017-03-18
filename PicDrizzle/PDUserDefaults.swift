@@ -10,10 +10,7 @@ import UIKit
 import SwiftyUserDefaults
 
 extension DefaultsKeys{
-    //    extension DefaultsKeys {
-    //        static let username = DefaultsKey<String?>("username")
-    //        static let launchCount = DefaultsKey<Int>("launchCount")
-    //    }
+
     static let username = DefaultsKey<String?>("")
     
 }

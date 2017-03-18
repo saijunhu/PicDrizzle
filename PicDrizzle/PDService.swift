@@ -21,9 +21,10 @@ enum PDService {
 }
 // MARK: - TargetType Protocol Implementation
 extension PDService: TargetType {
+
     
 //    let ACCESS_TOKEN = "e3cee9eb2e20e4acb3b15214f52eee60f29831880e11c4bad6aa98e5dab55289"
-    var baseURL: NSURL { return NSURL(string: "https://api.unsplash.com")! }
+    var baseURL: URL { return URL(string: "https://api.unsplash.com")! }
     
     var path: String {
         switch self {
@@ -51,19 +52,19 @@ extension PDService: TargetType {
             return .DELETE
         }
     }
-    var parameters: [String: AnyObject]? {
+    var parameters: [String: Any]? {
         switch self {
         case .login, .likePhoto, .unlikePhoto:
             return [:]
         case .getImageResources(let page):
-            return ["page": page]
+            return ["page": page as AnyObject]
         case .userLikePhotos( _, let page):
-            return ["page": page]
+            return ["page": page as AnyObject]
         case .register(let email, let password):
-            return ["email": email, "password": password]
+            return ["email": email as AnyObject, "password": password as AnyObject]
         }
     }
-    var sampleData: NSData {
+    var sampleData: Data {
 //        switch self {
 //        case .login:
 //            return "Half measures are as bad as nothing at all.".UTF8EncodedData
@@ -72,18 +73,20 @@ extension PDService: TargetType {
 //        case .getImageResources:
 //            return "{\"id\": 100, \"first_name\": \")\", \"last_name\": \")\"}".UTF8EncodedData
 //        }
-        return NSData()
+        return Data()
     }
 
-//    var multipartBody: [MultipartFormData]? {
-//        // Optional
-//        return nil
-//    }
+    var task: Task {
+        return Task.request
+
+    }
+
+
 }
 
 let myEndpointClosure = { (target: PDService) -> Endpoint<PDService> in
-    let url = target.baseURL.URLByAppendingPathComponent(target.path).absoluteString
-    let endpoint: Endpoint<PDService> = Endpoint<PDService>(URL: url, sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
+    let url = target.baseURL.appendingPathComponent(target.path).absoluteString
+    let endpoint: Endpoint<PDService> = Endpoint<PDService>(URL: url, sampleResponseClosure: {.networkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
     let headers = headerForTarget(.getImageResources(page: 1))
     return endpoint.endpointByAddingHTTPHeaderFields(headers)
 //    return endpoint.endpointByAddingHTTPHeaderFields(["Authorization": "Bearer e3cee9eb2e20e4acb3b15214f52eee60f29831880e11c4bad6aa98e5dab55289"])
@@ -91,12 +94,12 @@ let myEndpointClosure = { (target: PDService) -> Endpoint<PDService> in
 }
 
 
-let requestClosure = { (endpoint: Endpoint<PDService>, done: NSURLRequest -> Void) in
+let requestClosure = { (endpoint: Endpoint<PDService>, done: (URLRequest) -> Void) in
     let request = endpoint.urlRequest
     
     // Modify the request however you like.
     
-    done(request)
+    done(request!)
 }
 
 let provider = MoyaProvider<PDService>(endpointClosure: myEndpointClosure)
@@ -108,17 +111,17 @@ let provider = MoyaProvider<PDService>(endpointClosure: myEndpointClosure)
 // MARK: - Helpers
 public extension String {
     var URLEscapedString: String {
-        return self.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!
+        return self.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)!
     }
-    var UTF8EncodedData: NSData {
-        return self.dataUsingEncoding(NSUTF8StringEncoding)!
+    var UTF8EncodedData: Data {
+        return self.data(using: String.Encoding.utf8)!
     }
 }
-public func url(route: TargetType) -> String {
-    return route.baseURL.URLByAppendingPathComponent(route.path).absoluteString
-}
+//public func url(_ route: TargetType) -> String {
+//    return route.baseURL.URLByAppendingPathComponent(route.path).absoluteString
+//}
 
-func headerForTarget(target: PDService) -> [String: String]{
+func headerForTarget(_ target: PDService) -> [String: String]{
     switch target {
     case .getImageResources(_):
         return ["Authorization": "Bearer e3cee9eb2e20e4acb3b15214f52eee60f29831880e11c4bad6aa98e5dab55289"]

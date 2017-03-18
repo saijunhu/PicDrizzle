@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "55AB8E7E32285C19CD3654547961859BCCDA28CA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "55AB8E7E32285C19CD3654547961859BCCDA28CA" : 9223372036854775807,
+    "F17F92F496F199BA380F52EF0CF1AF2AF54CC731" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "69AC3107-0D24-43E9-80D0-617AEEFF5C03",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "55AB8E7E32285C19CD3654547961859BCCDA28CA" : "PicDrizzle\/",
+    "F17F92F496F199BA380F52EF0CF1AF2AF54CC731" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PicDrizzle",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "PicDrizzle.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/BMR731\/PicDrizzle.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "55AB8E7E32285C19CD3654547961859BCCDA28CA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.coding.net\/BMR731\/WeMeet--iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F17F92F496F199BA380F52EF0CF1AF2AF54CC731"
+    }
+  ]
+}

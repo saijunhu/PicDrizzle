@@ -26,7 +26,7 @@ class PreviewViewController: BaseViewController {
     
     lazy var menuBtn: CircleMenu = {
         let button = CircleMenu(
-            frame: CGRectZero,
+            frame: CGRect.zero,
             normalIcon:"ic_menu",
             selectedIcon:"ic_close",
             buttonsCount: 5,
@@ -39,8 +39,8 @@ class PreviewViewController: BaseViewController {
     }()
     
     lazy var koladaImageView: UIImageView = {
-        let view = UIImageView()
-        view.layer.borderColor = UIColor.darkGrayColor().CGColor
+        let  view = UIImageView()
+        view.layer.borderColor = UIColor.darkGray.cgColor
         view.layer.borderWidth = 4
         view.layer.cornerRadius = 3
         return view
@@ -55,7 +55,7 @@ class PreviewViewController: BaseViewController {
     }()
     
     lazy var glass: UIVisualEffectView = {
-        let effect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
         let view = UIVisualEffectView(effect: effect)
         view.frame.size = CGSize(width: WIDTH, height: HEIGHT)
         return view
@@ -63,7 +63,7 @@ class PreviewViewController: BaseViewController {
     
     lazy var bgView: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = UIColor.clearColor()
+        view.backgroundColor = UIColor.clear
         return view
     }()
     
@@ -71,7 +71,7 @@ class PreviewViewController: BaseViewController {
         let view = UIImageView()
         view.image = UIImage(named: "rain_bg")
         view.alpha = 0.8
-        view.contentMode = .ScaleAspectFill
+        view.contentMode = .scaleAspectFill
         view.backgroundColor = nil
         return view
     }()
@@ -83,40 +83,40 @@ class PreviewViewController: BaseViewController {
     }()
     
     lazy var passBtn: UIButton = {
-        let btn = UIButton(type: UIButtonType.Custom)
+        let btn = UIButton(type: UIButtonType.custom)
         //        btn.hidden = true
         btn.alpha = 1
         btn.imageView?.image = UIImage(named: "ic_close")
-        btn.enabled = false
+        btn.isEnabled = false
         return btn
     }()
     
     lazy var likeBtn: UIButton = {
-        let btn = UIButton(type: UIButtonType.Custom)
+        let btn = UIButton(type: UIButtonType.custom)
         //        btn.hidden = true
         btn.alpha = 1
         btn.imageView?.image = UIImage(named: "ic_favorite")
-        btn.enabled = false
+        btn.isEnabled = false
         btn.backgroundColor = nil
         return btn
     }()
     
     lazy var shareBtn: UIButton = {
-        let btn = UIButton(type: UIButtonType.Custom)
+        let btn = UIButton(type: UIButtonType.custom)
         //        btn.hidden = true
         btn.alpha = 1
         btn.imageView?.image = UIImage(named: "ic_share")
-        btn.enabled = false
+        btn.isEnabled = false
         btn.backgroundColor = nil
         return btn
     }()
     
     lazy var downloadBtn: UIButton = {
-        let btn = UIButton(type: UIButtonType.Custom)
+        let btn = UIButton(type: UIButtonType.custom)
         //        btn.hidden = true
         btn.alpha = 1
         btn.imageView?.image = UIImage(named: "ic_download")
-        btn.enabled = false
+        btn.isEnabled = false
         btn.backgroundColor = nil
         return btn
     }()
@@ -142,11 +142,11 @@ class PreviewViewController: BaseViewController {
             if imagesJSON.count>9{
                 for urls in imagesJSON{
                     
-                    self.thumbs.append(NSURL(string: urls["thumb"].string!)!)
-                    self.smalls.append(NSURL(string: urls["small"].string!)!)
-                    self.regulars.append(NSURL(string: urls["regular"].string!)!)
-                    self.fulls.append(NSURL(string: urls["full"].string!)!)
-                    self.raws.append(NSURL(string: urls["raw"].string!)!)
+                    self.thumbs.append(NSURL(string: urls["thumb"].string!)! as URL)
+                    self.smalls.append(NSURL(string: urls["small"].string!)! as URL)
+                    self.regulars.append(NSURL(string: urls["regular"].string!)! as URL)
+                    self.fulls.append(NSURL(string: urls["full"].string!)! as URL)
+                    self.raws.append(NSURL(string: urls["raw"].string!)! as URL)
                     self.kolodaView.reloadData()
                 }
             }
@@ -154,15 +154,15 @@ class PreviewViewController: BaseViewController {
     }
     
     var ids = [String]()
-    var thumbs = [NSURL]()
-    var smalls = [NSURL]()
-    var regulars = [NSURL]()
-    var fulls = [NSURL](){
+    var thumbs = [URL]()
+    var smalls = [URL]()
+    var regulars = [URL]()
+    var fulls = [URL](){
         didSet{
             //            preFetchData()
         }
     }
-    var raws:[NSURL] = [NSURL](){
+    var raws:[URL] = [URL](){
         didSet{
             //            preFetchData()
         }
@@ -170,9 +170,9 @@ class PreviewViewController: BaseViewController {
     
     
     var likeList = Set<SingleImage>()
-    var trashList = [NSURL]()
-    var downList = [NSURL]()
-    var uploadList = [NSURL]()
+    var trashList = [URL]()
+    var downList = [URL]()
+    var uploadList = [URL]()
     
     init(isHomePage: Bool){
         super.init(nibName: nil, bundle: nil)
@@ -188,7 +188,7 @@ class PreviewViewController: BaseViewController {
         super.viewDidLoad()
         
         //        self.navigationController?.navigationBarHidden = true
-        self.navigationController?.navigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = false
         
         self.view.addSubview(bgView)
         self.bgView.addSubview(glass)
@@ -210,7 +210,7 @@ class PreviewViewController: BaseViewController {
         
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         //        clearResourcesArray()
         self.page = 1
     }
@@ -228,7 +228,7 @@ extension PreviewViewController {
             getResources(.userLikePhotos(user: Defaults[.username]!, page: self.page))
         }
     }
-    func getResources(target: PDService){
+    func getResources(_ target: PDService){
         self.imagesJSON = []
         PDNetwork.Request(target) { (jsonData) in
             //print("------------------------------json comes\(jsonData)")
@@ -247,11 +247,11 @@ extension PreviewViewController {
     func handleLayout(){
         
         bgView.snp_makeConstraints { make in
-            make.edges.equalTo(self.view).inset(UIEdgeInsetsZero)
+            make.edges.equalTo(self.view).inset(UIEdgeInsets.zero)
         }
         
         glass.snp_makeConstraints { make in
-            make.edges.equalTo(self.bgView).inset(UIEdgeInsetsZero)
+            make.edges.equalTo(self.bgView).inset(UIEdgeInsets.zero)
         }
         
         //        dropView.snp_makeConstraints { make in
@@ -301,18 +301,18 @@ extension PreviewViewController {
     }
     
     
-    func preFetchData(){
-        
-        
-        let prefetcher = ImagePrefetcher(urls: self.fulls, optionsInfo: nil, progressBlock: nil, completionHandler: {
-            (skippedResources, failedResources, completedResources) -> () in
-            print("These resources are prefetched: \(completedResources)")
-        })
-        
-        prefetcher.start()
-        
-    }
-    
+//    func preFetchData(){
+//        
+//        
+//        let prefetcher = ImagePrefetcher(urls: self.fulls, optionsInfo: nil, progressBlock: nil, completionHandler: {
+//            (skippedResources, failedResources, completedResources) -> () in
+//            print("These resources are prefetched: \(completedResources)")
+//        })
+//        
+//        prefetcher.start()
+//        
+//    }
+
     func clearResourcesArray(){
         self.thumbs = []
         self.smalls = []
@@ -327,22 +327,22 @@ extension PreviewViewController {
 // MARK:  Handle the gesture and relevent function
 extension PreviewViewController: ImageDownloaderDelegate{
     //MARK: config gesture function
-    func swipeUp(index: Int){
+    func swipeUp(_ index: Int){
         
         //        ShowShareEditor(index)
         
     }
     
-    func swipeLeft(index: Int){
+    func swipeLeft(_ index: Int){
         if self.smalls.count>0{
             self.trashList.append(self.smalls[index])
         }
         
     }
     
-    func swipeRight(index: Int){
+    func swipeRight(_ index: Int){
         if isHomePage{
-            if self.smalls[index] != "" {
+            if self.smalls[index].absoluteString != "" {
                 self.likeList.insert(SingleImage(id: self.ids[index], thumb: self.thumbs[index], small: self.smalls[index], regular: self.regulars[index], full: self.fulls[index], raw: self.raws[index]))
             }
             
@@ -354,21 +354,21 @@ extension PreviewViewController: ImageDownloaderDelegate{
     }
     
     
-    func swipeDown(index: Int){
+    func swipeDown(_ index: Int){
         self.downList.append(self.smalls[index])
-        let downloader =  KingfisherManager.sharedManager.downloader
+        let downloader =  KingfisherManager.shared.downloader
         downloader.delegate = self
         downloader.downloadTimeout = 5
         
         for url in self.downList {
-            downloader.downloadImageWithURL(
-                url,
+            downloader.downloadImage(
+                with: url,
                 options: nil,
                 progressBlock: { (receivedSize, totalSize) in
                     //
                 }, completionHandler: { (image, error, imageURL, originalData) in
                     if self.downList == [] {
-                        HUD.flash(.LabeledSuccess(title: "Download Success", subtitle: nil), delay: 0.5, completion: nil)
+                        HUD.flash(.labeledSuccess(title: "Download Success", subtitle: nil), delay: 0.5, completion: nil)
                     }
                     
             })
@@ -376,55 +376,55 @@ extension PreviewViewController: ImageDownloaderDelegate{
         
     }
     
-    func imageDownloader(downloader: ImageDownloader, didDownloadImage image: Image, forURL URL: NSURL, withResponse response: NSURLResponse) {
-        if let index = self.downList.indexOf(URL){
+    func imageDownloader(_ downloader: ImageDownloader, didDownloadImage image: Image, forURL URL: Foundation.URL, withResponse response: URLResponse) {
+        if let index = self.downList.index(of: URL){
             
-            self.downList.removeAtIndex(index)
+            self.downList.remove(at: index)
         }
     }
     
-    func ShowShareEditor(index: Int) {
-        
-        // 1.创建分享参数
-        let shareParames = NSMutableDictionary()
-        
-        if smalls.count == 0 {
-            return
-        }
-        
-        shareParames.SSDKSetupShareParamsByText("add some comments on this picture",
-                                                images : UIImage(data: NSData(contentsOfURL: self.smalls[index])!) ,
-                                                url : NSURL(string:"http://mob.com"),
-                                                title : "Share Picture to",
-                                                type : SSDKContentType.Auto)
-        //2.进行分享
-        ShareSDK.showShareActionSheet(self.view, items: nil, shareParams: shareParames) { (state : SSDKResponseState, platformType : SSDKPlatformType, userdata : [NSObject : AnyObject]!, contentEnity : SSDKContentEntity!, error : NSError!, end) -> Void in
-            
-            switch state{
-                
-            case SSDKResponseState.Success: print("分享成功")
-            case SSDKResponseState.Fail:    print("分享失败,错误描述:\(error)")
-            case SSDKResponseState.Cancel:  print("分享取消")
-                
-            default:
-                break
-            }
-        }
-        
-        
-    }
-    
+//    func ShowShareEditor(_ index: Int) {
+//        
+//        // 1.创建分享参数
+//        let shareParames = NSMutableDictionary()
+//        
+//        if smalls.count == 0 {
+//            return
+//        }
+//        
+//        shareParames.ssdkSetupShareParams(byText: "add some comments on this picture",
+//                                                images : UIImage(data: try! Data(contentsOf: self.smalls[index])) ,
+//                                                url : URL(string:"http://mob.com"),
+//                                                title : "Share Picture to",
+//                                                type : SSDKContentType.auto)
+//        //2.进行分享
+//        ShareSDK.showShareActionSheet(self.view, items: nil, shareParams: shareParames) { (state : SSDKResponseState, platformType : SSDKPlatformType, userdata : [AnyHashable: Any]!, contentEnity : SSDKContentEntity!, error : NSError!, end) -> Void in
+//            
+//            switch state{
+//                
+//            case SSDKResponseState.success: print("分享成功")
+//            case SSDKResponseState.fail:    print("分享失败,错误描述:\(error)")
+//            case SSDKResponseState.cancel:  print("分享取消")
+//                
+//            default:
+//                break
+//            }
+//        }
+//        
+//        
+//    }
+
 }
 // MARK: handle the animations in four direction
 extension PreviewViewController {
     func upAnimation() {
-        self.animationView.frame = CGRectMake(0, 0, WIDTH, 20)
-        self.animationView.backgroundColor = UIColor.blueColor()
+        self.animationView.frame = CGRect(x: 0, y: 0, width: WIDTH, height: 20)
+        self.animationView.backgroundColor = UIColor.blue
         self.view.insertSubview(animationView, belowSubview: self.shareBtn)
         
-        UIView.animateWithDuration(0.5,
+        UIView.animate(withDuration: 0.5,
                                    delay: 0,
-                                   options: UIViewAnimationOptions.CurveEaseIn,
+                                   options: UIViewAnimationOptions.curveEaseIn,
                                    animations: { 
                                     self.animationView.alpha = 0
                                     self.shareBtn.alpha = 0
@@ -436,13 +436,13 @@ extension PreviewViewController {
     }
     
     func downAnimation() {
-        self.animationView.frame = CGRectMake(0, HEIGHT+20, WIDTH, 20)
+        self.animationView.frame = CGRect(x: 0, y: HEIGHT+20, width: WIDTH, height: 20)
         self.animationView.backgroundColor = UIColor ( red: 0.3039, green: 0.68, blue: 0.2898, alpha: 1.0 )
         self.view.insertSubview(animationView, belowSubview: self.downloadBtn)
         
-        UIView.animateWithDuration(1,
+        UIView.animate(withDuration: 1,
                                    delay: 0,
-                                   options: UIViewAnimationOptions.CurveEaseIn,
+                                   options: UIViewAnimationOptions.curveEaseIn,
                                    animations: {
                                     self.animationView.alpha = 0
                                     self.downloadBtn.alpha = 0
@@ -456,13 +456,13 @@ extension PreviewViewController {
     }
     
     func leftAnimation() {
-        self.animationView.frame = CGRectMake(-20, 0, 20 , HEIGHT)
+        self.animationView.frame = CGRect(x: -20, y: 0, width: 20 , height: HEIGHT)
         self.animationView.backgroundColor = UIColor ( red: 0.92, green: 0.618, blue: 0.2425, alpha: 1.0 )
         self.view.insertSubview(animationView, belowSubview: self.passBtn)
         
-        UIView.animateWithDuration(0.8,
+        UIView.animate(withDuration: 0.8,
                                    delay: 0,
-                                   options: UIViewAnimationOptions.CurveEaseIn,
+                                   options: UIViewAnimationOptions.curveEaseIn,
                                    animations: {
                                     self.animationView.alpha = 0
                                     self.passBtn.alpha = 0
@@ -476,12 +476,12 @@ extension PreviewViewController {
     }
     
     func rightAnimation() {
-        self.animationView.frame = CGRectMake(WIDTH+20, 0 , 20, HEIGHT)
+        self.animationView.frame = CGRect(x: WIDTH+20, y: 0 , width: 20, height: HEIGHT)
         self.animationView.backgroundColor = isHomePage ? UIColor.init(red: 0.2073, green: 0.4638, blue: 0.7454, alpha: 1.0) : UIColor ( red: 0.851, green: 0.3255, blue: 0.3098, alpha: 1.0 )
         self.view.insertSubview(animationView, belowSubview: self.likeBtn)
-        UIView.animateWithDuration(1,
+        UIView.animate(withDuration: 1,
                                    delay: 0,
-                                   options: UIViewAnimationOptions.CurveEaseIn,
+                                   options: UIViewAnimationOptions.curveEaseIn,
                                    animations: {
                                     self.animationView.alpha = 0
                                     self.likeBtn.alpha = 0
@@ -499,21 +499,21 @@ extension PreviewViewController {
 extension PreviewViewController: CircleMenuDelegate{
     
     
-    func circleMenu(circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
+    func circleMenu(_ circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
         button.backgroundColor = items[atIndex].color
-        button.setImage(UIImage(imageLiteral: items[atIndex].icon), forState: .Normal)
-        
+        button.setImage(UIImage(named: items[atIndex].icon), for: UIControlState())
+
         // set highlited image
-        let highlightedImage  = UIImage(imageLiteral: items[atIndex].icon).imageWithRenderingMode(.AlwaysTemplate)
-        button.setImage(highlightedImage, forState: .Highlighted)
+        let highlightedImage  = UIImage(named: items[atIndex].icon)?.withRenderingMode(.alwaysTemplate)
+        button.setImage(highlightedImage, for: .highlighted)
         button.tintColor = UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.3)
     }
     
-    func circleMenu(circleMenu: CircleMenu, buttonWillSelected button: UIButton, atIndex: Int) {
+    func circleMenu(_ circleMenu: CircleMenu, buttonWillSelected button: UIButton, atIndex: Int) {
         print("button will selected: \(atIndex)")
     }
     
-    func circleMenu(circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
+    func circleMenu(_ circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
         print("button did selected: \(atIndex)")
         if atIndex == 4 {
             self.navigationController?.pushViewController(PreviewViewController(isHomePage: false), animated: true)
@@ -526,7 +526,7 @@ extension PreviewViewController: CircleMenuDelegate{
 //MARK: KolodaViewDelegate
 extension PreviewViewController: KolodaViewDelegate {
     
-    func kolodaDidRunOutOfCards(koloda: KolodaView) {
+    func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
         //        dataSource.insert(UIImage(named: "Card_like_6")!, atIndex: kolodaView.currentCardIndex - 1)
         //        let position = kolodaView.currentCardIndex
         //        kolodaView.insertCardAtIndexRange(position...position, animated: true)
@@ -537,40 +537,40 @@ extension PreviewViewController: KolodaViewDelegate {
         //        kolodaView.reloadData()
     }
     
-    func koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt) {
+    func koloda(_ koloda: KolodaView, didSelectCardAtIndex index: UInt) {
         if self.smalls.count != 0{
             let DVC = DisplayViewController()
             DVC.imageUrl = self.smalls[Int(index)]
-            presentViewController(DVC, animated: true, completion: { 
+            present(DVC, animated: true, completion: { 
                 
             })
             
         }
     }
     
-    func koloda(koloda: KolodaView, allowedDirectionsForIndex index: UInt) -> [SwipeResultDirection] {
-        return [.Left,.Right,.Up,.Down]
+    func koloda(_ koloda: KolodaView, allowedDirectionsForIndex index: UInt) -> [SwipeResultDirection] {
+        return [.left,.right,.up,.down]
     }
     
-    func koloda(koloda: KolodaView, shouldSwipeCardAtIndex index: UInt, inDirection direction: SwipeResultDirection) -> Bool {
+    func koloda(_ koloda: KolodaView, shouldSwipeCardAtIndex index: UInt, inDirection direction: SwipeResultDirection) -> Bool {
         print(direction.hashValue)
         
-        if direction == SwipeResultDirection.Up{
-            ShowShareEditor(Int(index))
+        if direction == SwipeResultDirection.up{
+//            ShowShareEditor(Int(index))
 //            upAnimation()
             return false
         }
-        if direction == SwipeResultDirection.Left{
+        if direction == SwipeResultDirection.left{
             leftAnimation()
             return true
             
         }
-        if direction == SwipeResultDirection.Down{
+        if direction == SwipeResultDirection.down{
             downAnimation()
             
             return true
         }
-        if direction == SwipeResultDirection.Right{
+        if direction == SwipeResultDirection.right{
             rightAnimation()
             return true 
         }
@@ -578,21 +578,21 @@ extension PreviewViewController: KolodaViewDelegate {
     }
     
     
-    func koloda(koloda: KolodaView, didSwipeCardAtIndex index: UInt, inDirection direction: SwipeResultDirection) {
-        if direction == SwipeResultDirection.Up{
+    func koloda(_ koloda: KolodaView, didSwipeCardAtIndex index: UInt, inDirection direction: SwipeResultDirection) {
+        if direction == SwipeResultDirection.up{
             swipeUp(Int(index))
             print("listen up")
         }
-        if direction == SwipeResultDirection.Left{
+        if direction == SwipeResultDirection.left{
             swipeLeft(Int(index))
             print("listen left")
         }
         
-        if direction == SwipeResultDirection.Right{
+        if direction == SwipeResultDirection.right{
             swipeRight(Int(index))
             print("listen right")
         }
-        if direction == SwipeResultDirection.Down{
+        if direction == SwipeResultDirection.down{
             swipeDown(Int(index))
             print("listen down")
         }
@@ -611,15 +611,18 @@ extension PreviewViewController: KolodaViewDelegate {
 
 //MARK: KolodaViewDataSource
 extension PreviewViewController: KolodaViewDataSource {
-    
-    func kolodaNumberOfCards(koloda:KolodaView) -> UInt {
-        return UInt(smalls.count)
+ 
+
+
+
+    func kolodaNumberOfCards(_ koloda:KolodaView) -> Int {
+        return Int(smalls.count)
     }
     
-    func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
+    func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
         
-        var imageUrl = NSURL()
-        var bgUrl = NSURL()
+        var imageUrl = URL(string: "")
+        var bgUrl = URL(string: "")
         if self.smalls.count != 0{
             
             imageUrl = self.smalls[Int(index)]
@@ -628,15 +631,15 @@ extension PreviewViewController: KolodaViewDataSource {
         }
         
         let imageView = UIImageView()
-        imageView .layer.borderColor = UIColor ( red: 0.702, green: 0.702, blue: 0.702, alpha: 1.0 ).CGColor
+        imageView .layer.borderColor = UIColor ( red: 0.702, green: 0.702, blue: 0.702, alpha: 1.0 ).cgColor
         imageView .layer.borderWidth = 4
         imageView .layer.cornerRadius = 3
-        imageView.kf_setImageWithURL(imageUrl, placeholderImage: UIImage(named: "drop_bg"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
-        self.bgView.kf_setImageWithURL(bgUrl, placeholderImage: nil, optionsInfo: nil, progressBlock: nil, completionHandler: nil)
+        imageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: "drop_bg"), options: nil, progressBlock: nil, completionHandler: nil)
+        self.bgView.kf.setImage(with: bgUrl, placeholder: nil, options: nil, progressBlock: nil, completionHandler: nil)
         return imageView
     }
     
-    func koloda(koloda: KolodaView, viewForCardOverlayAtIndex index: UInt) -> OverlayView? {
+    func koloda(_ koloda: KolodaView, viewForCardOverlayAtIndex index: Int) -> OverlayView? {
         //        return NSBundle.mainBundle().loadNibNamed("OverlayView",
         //                                                  owner: self, options: nil)[0] as? OverlayView
         return nil

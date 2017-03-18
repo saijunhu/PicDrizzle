@@ -12,13 +12,13 @@ import UIKit
 class SingleImage: NSObject {
     
     var id:String = ""
-    var thumb = NSURL()
-    var small = NSURL()
-    var regular = NSURL()
-    var full = NSURL()
-    var raw = NSURL()
+    var thumb = URL(string: "")
+    var small = URL(string: "")
+    var regular = URL(string: "")
+    var full = URL(string: "")
+    var raw = URL(string: "")
     
-    init(id: String, thumb: NSURL, small: NSURL, regular: NSURL, full: NSURL, raw: NSURL) {
+    init(id: String, thumb: URL, small: URL, regular: URL, full: URL, raw: URL) {
         self.id = id
         self.thumb = thumb
         self.small = small
