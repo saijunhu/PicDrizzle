@@ -27,7 +27,7 @@ import UIKit
 // MARK: helpers
 
 @warn_unused_result
-func Init<Type>(value: Type, @noescape block: (object: Type) -> Void) -> Type {
+func Init<Type>(value: Type, block: @noescape (_ object: Type) -> Void) -> Type {
   block(object: value)
   return value
 }
@@ -46,7 +46,7 @@ func Init<Type>(value: Type, @noescape block: (object: Type) -> Void) -> Type {
    - parameter button:     A circle menu button object that circle menu is going to use when drawing the row. Don't change button.tag
    - parameter atIndex:    An button index.
    */
-  optional func circleMenu(circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int)
+  @objc optional func circleMenu(circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int)
   
   /**
    Tells the delegate that a specified index is about to be selected.
@@ -55,7 +55,7 @@ func Init<Type>(value: Type, @noescape block: (object: Type) -> Void) -> Type {
    - parameter button:     A selected circle menu button. Don't change button.tag
    - parameter atIndex:    Selected button index
    */
-  optional func circleMenu(circleMenu: CircleMenu, buttonWillSelected button: UIButton, atIndex: Int)
+  @objc optional func circleMenu(circleMenu: CircleMenu, buttonWillSelected button: UIButton, atIndex: Int)
   
   /**
    Tells the delegate that the specified index is now selected.
@@ -64,14 +64,14 @@ func Init<Type>(value: Type, @noescape block: (object: Type) -> Void) -> Type {
    - parameter button:     A selected circle menu button. Don't change button.tag
    - parameter atIndex:    Selected button index
    */
-  optional func circleMenu(circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int)
+  @objc optional func circleMenu(circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int)
 
     /**
      Tells the delegate that the menu was collapsed - the cancel action.
      
      - parameter circleMenu: A circle menu object informing the delegate about the new index selection.
      */
-    optional func menuCollapsed(circleMenu: CircleMenu)
+    @objc optional func menuCollapsed(circleMenu: CircleMenu)
 }
 
 // MARK: CircleMenu
@@ -331,7 +331,7 @@ public class CircleMenu: UIButton {
   
   private func tapRotatedAnimation(duration: Float, isSelected: Bool) {
     
-    let addAnimations: (view: UIImageView, isShow: Bool) -> () = { (view, isShow) in
+    let addAnimations: (_ view: UIImageView, _ isShow: Bool) -> () = { (view, isShow) in
       var toAngle: Float   = 180.0
       var fromAngle: Float = 0
       var fromScale        = 1.0

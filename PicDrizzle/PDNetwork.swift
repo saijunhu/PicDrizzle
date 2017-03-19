@@ -16,26 +16,26 @@ let header:Dictionary = ["Authorization": "Bearer e3cee9eb2e20e4acb3b15214f52eee
 
 class PDNetwork: NSObject {
     
-    static func Request(target: PDService, fetchData: JSON -> Void) {
+    static func Request(target: PDService, fetchData: @escaping (JSON) -> Void) {
         
         provider.request(target){ result in
             switch result {
-            case .Success(let response):
+            case .success(let response):
                 
                 let json = JSON(data: response.data)
-                 debugPrint(json)
+//                 debugPrint(json)
                 if json["errors"] != nil {
-                    showError("request refuesd")
+                    showError(description: "request refuesd")
                     debugPrint("request refused")
                 }else{
                     debugPrint("request success")
-                    debugPrint(json)
+//                    debugPrint(json)
                     return fetchData(json)
                 }
                 print("network success")
                 
-            case .Failure(let error):
-                showError(error.nsError.description)
+            case .failure(let error):
+                showError(description: error.localizedDescription)
                 print("network failed")
                 
             }
@@ -45,7 +45,7 @@ class PDNetwork: NSObject {
     static func showError(description: String){
         
 
-        HUD.flash(.LabeledError(title: "Error", subtitle: "description"), delay: 0.1) { _ in
+        HUD.flash(.labeledError(title: "Error", subtitle: "description"), delay: 0.1) { _ in
             
         }
     }

@@ -8,22 +8,17 @@
 
 import Foundation
 import UIKit
+import RealmSwift
+import Realm
 
-class SingleImage: NSObject {
+class SingleImage: Object {
     
-    var id:String = ""
-    var thumb = NSURL()
-    var small = NSURL()
-    var regular = NSURL()
-    var full = NSURL()
-    var raw = NSURL()
-    
-    init(id: String, thumb: NSURL, small: NSURL, regular: NSURL, full: NSURL, raw: NSURL) {
-        self.id = id
-        self.thumb = thumb
-        self.small = small
-        self.regular = regular
-        self.full = full
-        self.raw = raw
+    dynamic var id:String = ""
+    dynamic var regular = ""
+    dynamic var full = ""
+    dynamic var raw = ""
+
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }

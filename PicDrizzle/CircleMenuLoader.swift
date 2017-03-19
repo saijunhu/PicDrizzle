@@ -40,17 +40,17 @@ internal class CircleMenuLoader: UIView {
             aSuperView.insertSubview(self, belowSubview: circleMenu)
         }
 
-        circle = createCircle(radius, strokeWidth: strokeWidth, color: color)
-        createConstraints(circleMenu, radius: radius)
+        circle = createCircle(radius: radius, strokeWidth: strokeWidth, color: color)
+        createConstraints(circleMenu: circleMenu, radius: radius)
 
         let circleFrame = CGRect(
             x: radius * 2 - strokeWidth,
             y: radius - strokeWidth / 2,
             width: strokeWidth,
             height: strokeWidth)
-        createRoundView(circleFrame, color: color)
+        createRoundView(rect: circleFrame, color: color)
 
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clearColor
     }
 
     required internal init?(coder aDecoder: NSCoder) {
@@ -68,7 +68,7 @@ internal class CircleMenuLoader: UIView {
             endAngle:CGFloat(M_PI * 2),
             clockwise: true)
 
-        let circle = Init(CAShapeLayer()) {
+        let circle = Init(value: CAShapeLayer()) {
             $0.path        = circlePath.CGPath
             $0.fillColor   = UIColor.clearColor().CGColor
             $0.strokeColor = color?.CGColor
@@ -88,40 +88,40 @@ internal class CircleMenuLoader: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         // added constraints
         addConstraint(NSLayoutConstraint(item: self,
-            attribute: .Height,
-            relatedBy: .Equal,
+            attribute: .height,
+            relatedBy: .equal,
             toItem: nil,
-            attribute: .Height,
+            attribute: .height,
             multiplier: 1,
             constant: radius * 2.0))
 
         addConstraint(NSLayoutConstraint(item: self,
-            attribute: .Width,
-            relatedBy: .Equal,
+            attribute: .width,
+            relatedBy: .equal,
             toItem: nil,
-            attribute: .Width,
+            attribute: .width,
             multiplier: 1,
             constant: radius * 2.0))
 
         circleMenuSuperView.addConstraint(NSLayoutConstraint(item: circleMenu,
-            attribute: .CenterX,
-            relatedBy: .Equal,
+            attribute: .centerX,
+            relatedBy: .equal,
             toItem: self,
-            attribute: .CenterX,
+            attribute: .centerX,
             multiplier: 1,
             constant:0))
 
         circleMenuSuperView.addConstraint(NSLayoutConstraint(item: circleMenu,
-            attribute: .CenterY,
-            relatedBy: .Equal,
+            attribute: .centerY,
+            relatedBy: .equal,
             toItem: self,
-            attribute: .CenterY,
+            attribute: .centerY,
             multiplier: 1,
             constant:0))
     }
 
     internal func createRoundView(rect: CGRect, color: UIColor?) {
-        let roundView = Init(UIView(frame: rect)) {
+        let roundView = Init(value: UIView(frame: rect)) {
             $0.backgroundColor = UIColor.blackColor()
             $0.layer.cornerRadius = rect.size.width / 2.0
             $0.backgroundColor = color
@@ -139,7 +139,7 @@ internal class CircleMenuLoader: UIView {
         let rotateTransform = CATransform3DMakeRotation(CGFloat(startAngle.degrees), 0, 0, 1)
         layer.transform = rotateTransform
 
-        let animation = Init(CABasicAnimation(keyPath: "strokeEnd")) {
+        let animation = Init(value: CABasicAnimation(keyPath: "strokeEnd")) {
             $0.duration       = CFTimeInterval(duration)
             $0.fromValue      = (0)
             $0.toValue        = (1)
@@ -150,7 +150,7 @@ internal class CircleMenuLoader: UIView {
 
     internal func hideAnimation(duration: CGFloat, delay: Double) {
 
-        let scale = Init(CABasicAnimation(keyPath: "transform.scale")) {
+        let scale = Init(value: CABasicAnimation(keyPath: "transform.scale")) {
             $0.toValue             = 1.2
             $0.duration            = CFTimeInterval(duration)
             $0.fillMode            = kCAFillModeForwards
@@ -160,10 +160,10 @@ internal class CircleMenuLoader: UIView {
         }
         layer.addAnimation(scale, forKey: nil)
 
-        UIView.animateWithDuration(
-            CFTimeInterval(duration),
+        UIView.animate(
+            withDuration: CFTimeInterval(duration),
             delay: delay,
-            options: UIViewAnimationOptions.CurveEaseIn,
+            options: UIViewAnimationOptions.curveEaseIn,
             animations: { () -> Void in
                 self.alpha = 0
             },

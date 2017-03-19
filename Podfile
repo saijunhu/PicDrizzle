@@ -19,10 +19,11 @@ target ’PicDrizzle’ do
     #View
 	pod 'SnapKit', '~> 3.0.2'
 	pod 'PKHUD', '~> 4.0'
-	pod	'Koloda'
+	pod 'Koloda', '~> 4.0'
 
 	#Data persistence
 	pod 'SwiftyUserDefaults'
+	pod 'RealmSwift'
 	
 	#Others
 	pod 'R.swift'
@@ -32,7 +33,12 @@ target ’PicDrizzle’ do
 
 end
 
-
 post_install do |installer|
-`find Pods -regex 'Pods/pop.*\\.h' -print0 | xargs -0 sed -i '' 's/\\(<\\)pop\\/\\(.*\\)\\(>\\)/\\"\\2\\"/'`
-end
+	`find Pods -regex 'Pods/pop.*\\.h' -print0 | xargs -0 sed -i '' 's/\\(<\\)pop\\/\\(.*\\)\\(>\\)/\\"\\2\\"/'`
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['SWIFT_VERSION'] = '3.0'
+        end
+    end
+  end
+

@@ -8,31 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		1E11BE8870A93679D43CD0D5 /* Pods_PicDrizzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23580C8DC8847E91AD4B74E1 /* Pods_PicDrizzle.framework */; };
+		740D5AA71E7E472600D73990 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 740D5AA61E7E472600D73990 /* Launch Screen.storyboard */; };
+		7425AD511E7E6F7900E95B27 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7425AD501E7E6F7900E95B27 /* ImageManager.swift */; };
+		7425AD531E7E7C7300E95B27 /* LoveList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7425AD521E7E7C7300E95B27 /* LoveList.swift */; };
+		7498696A1E7EB273009092F4 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749869691E7EB273009092F4 /* FavoriteViewController.swift */; };
+		749C8B711E7E625600E04CB5 /* PreViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749C8B701E7E625600E04CB5 /* PreViewAnimation.swift */; };
+		749C8B731E7E673F00E04CB5 /* KoladaViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749C8B721E7E673F00E04CB5 /* KoladaViewConfig.swift */; };
 		762816061D3B1051000019FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762816051D3B1051000019FA /* AppDelegate.swift */; };
 		7628160D1D3B1051000019FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7628160C1D3B1051000019FA /* Assets.xcassets */; };
-		762816101D3B1051000019FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7628160E1D3B1051000019FA /* LaunchScreen.storyboard */; };
 		762816181D3B1398000019FA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762816171D3B1398000019FA /* BaseViewController.swift */; };
 		7628161A1D3B13B3000019FA /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762816191D3B13B3000019FA /* DisplayViewController.swift */; };
 		762816201D3B1819000019FA /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7628161F1D3B1819000019FA /* PreviewViewController.swift */; };
 		762816221D3B40FB000019FA /* PDNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762816211D3B40FA000019FA /* PDNetwork.swift */; };
 		762816281D3BB097000019FA /* CustomKoloda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762816271D3BB097000019FA /* CustomKoloda.swift */; };
-		763D789D1D547DA4001CBDA6 /* CircleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D789C1D547DA4001CBDA6 /* CircleMenu.swift */; };
-		763D789F1D547DAB001CBDA6 /* CircleMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D789E1D547DAB001CBDA6 /* CircleMenuButton.swift */; };
-		763D78A11D547DC8001CBDA6 /* CircleMenuLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D78A01D547DC8001CBDA6 /* CircleMenuLoader.swift */; };
 		763D78A51D548D2C001CBDA6 /* PDDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D78A41D548D2C001CBDA6 /* PDDownloader.swift */; };
-		763D78C91D54ACC1001CBDA6 /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78A71D54ACC1001CBDA6 /* ShareSDK.framework */; };
-		763D78CA1D54ACC2001CBDA6 /* ShareSDKExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78AA1D54ACC1001CBDA6 /* ShareSDKExtension.framework */; };
 		763D78CB1D54ACC2001CBDA6 /* ShareSDKUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 763D78AB1D54ACC1001CBDA6 /* ShareSDKUI.bundle */; };
-		763D78CC1D54ACC2001CBDA6 /* ShareSDKUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78AC1D54ACC1001CBDA6 /* ShareSDKUI.framework */; };
-		763D78CD1D54ACC2001CBDA6 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78AF1D54ACC1001CBDA6 /* TencentOpenAPI.framework */; };
 		763D78CE1D54ACC2001CBDA6 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 763D78B01D54ACC1001CBDA6 /* TencentOpenApi_IOS_Bundle.bundle */; };
-		763D78CF1D54ACC2001CBDA6 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78B21D54ACC1001CBDA6 /* libWeiboSDK.a */; };
 		763D78D01D54ACC2001CBDA6 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 763D78BC1D54ACC1001CBDA6 /* WeiboSDK.bundle */; };
-		763D78D11D54ACC2001CBDA6 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78C01D54ACC1001CBDA6 /* libWeChatSDK.a */; };
 		763D78D21D54ACC2001CBDA6 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 763D78C11D54ACC1001CBDA6 /* README.txt */; };
-		763D78D31D54ACC2001CBDA6 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78C61D54ACC1001CBDA6 /* MOBFoundation.framework */; };
 		763D78D41D54ACC2001CBDA6 /* ShareSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 763D78C71D54ACC1001CBDA6 /* ShareSDK.bundle */; };
-		763D78D51D54ACC2001CBDA6 /* ShareSDKConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78C81D54ACC1001CBDA6 /* ShareSDKConnector.framework */; };
 		763D78D71D54AD80001CBDA6 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78D61D54AD80001CBDA6 /* libicucore.tbd */; };
 		763D78D91D54AD99001CBDA6 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78D81D54AD99001CBDA6 /* libz.1.2.5.tbd */; };
 		763D78DB1D54ADBF001CBDA6 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78DA1D54ADBF001CBDA6 /* libstdc++.tbd */; };
@@ -41,23 +35,26 @@
 		763D78E11D54ADF0001CBDA6 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78E01D54ADF0001CBDA6 /* libsqlite3.tbd */; };
 		763D78E31D54AE06001CBDA6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78E21D54AE06001CBDA6 /* MessageUI.framework */; };
 		763D78E51D54AE15001CBDA6 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 763D78E41D54AE15001CBDA6 /* ImageIO.framework */; };
-		7658272E1D556B7700C91EA2 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7658272D1D556B7700C91EA2 /* FBSDKMessengerShareKit.framework */; };
-		765827341D556B8900C91EA2 /* libAPOpenSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 765827321D556B8900C91EA2 /* libAPOpenSdk.a */; };
 		765827351D556B8900C91EA2 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 765827331D556B8900C91EA2 /* README.md */; };
 		765827371D55B89000C91EA2 /* PDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765827361D55B89000C91EA2 /* PDService.swift */; };
 		7678DC191D56B62E000DEE9D /* PDHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678DC181D56B62E000DEE9D /* PDHelper.swift */; };
 		7678DC1F1D574036000DEE9D /* SingleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678DC1E1D574036000DEE9D /* SingleImage.swift */; };
 		7678DC271D581D76000DEE9D /* PDUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7678DC261D581D76000DEE9D /* PDUserDefaults.swift */; };
 		76CA718B1D3DC2CC00E7B30C /* settingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CA718A1D3DC2CC00E7B30C /* settingTableViewController.swift */; };
-		76CA718D1D3DC2FB00E7B30C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76CA718C1D3DC2FB00E7B30C /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		23580C8DC8847E91AD4B74E1 /* Pods_PicDrizzle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicDrizzle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		740D5AA41E7E434C00D73990 /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevealServer.framework; path = "../../../../../../../../../Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/RevealServer.framework"; sourceTree = "<group>"; };
+		740D5AA61E7E472600D73990 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		7425AD501E7E6F7900E95B27 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		7425AD521E7E7C7300E95B27 /* LoveList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoveList.swift; sourceTree = "<group>"; };
+		749869691E7EB273009092F4 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		749C8B701E7E625600E04CB5 /* PreViewAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreViewAnimation.swift; sourceTree = "<group>"; };
+		749C8B721E7E673F00E04CB5 /* KoladaViewConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KoladaViewConfig.swift; sourceTree = "<group>"; };
 		762816021D3B1051000019FA /* PicDrizzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicDrizzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		762816051D3B1051000019FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7628160C1D3B1051000019FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7628160F1D3B1051000019FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		762816111D3B1051000019FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		762816171D3B1398000019FA /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		762816191D3B13B3000019FA /* DisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
@@ -65,9 +62,6 @@
 		762816211D3B40FA000019FA /* PDNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDNetwork.swift; sourceTree = "<group>"; };
 		762816271D3BB097000019FA /* CustomKoloda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomKoloda.swift; sourceTree = "<group>"; };
 		762D09501D54E2EC007AF7D7 /* ShareSDK-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ShareSDK-Bridging-Header.h"; path = "PicDrizzle/ShareSDK-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		763D789C1D547DA4001CBDA6 /* CircleMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleMenu.swift; sourceTree = "<group>"; };
-		763D789E1D547DAB001CBDA6 /* CircleMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleMenuButton.swift; sourceTree = "<group>"; };
-		763D78A01D547DC8001CBDA6 /* CircleMenuLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleMenuLoader.swift; sourceTree = "<group>"; };
 		763D78A41D548D2C001CBDA6 /* PDDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDDownloader.swift; sourceTree = "<group>"; };
 		763D78A71D54ACC1001CBDA6 /* ShareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDK.framework; sourceTree = "<group>"; };
 		763D78AA1D54ACC1001CBDA6 /* ShareSDKExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKExtension.framework; sourceTree = "<group>"; };
@@ -114,7 +108,6 @@
 		7678DC1E1D574036000DEE9D /* SingleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleImage.swift; sourceTree = "<group>"; };
 		7678DC261D581D76000DEE9D /* PDUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDUserDefaults.swift; sourceTree = "<group>"; };
 		76CA718A1D3DC2CC00E7B30C /* settingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingTableViewController.swift; sourceTree = "<group>"; };
-		76CA718C1D3DC2FB00E7B30C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		984028629FE53AEC4D4648EB /* Pods-PicDrizzle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicDrizzle.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicDrizzle/Pods-PicDrizzle.release.xcconfig"; sourceTree = "<group>"; };
 		AC9D1920BED941C8E8BCA6C3 /* Pods-PicDrizzle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicDrizzle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicDrizzle/Pods-PicDrizzle.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,27 +121,42 @@
 				763D78E31D54AE06001CBDA6 /* MessageUI.framework in Frameworks */,
 				763D78E11D54ADF0001CBDA6 /* libsqlite3.tbd in Frameworks */,
 				763D78DF1D54ADDC001CBDA6 /* JavaScriptCore.framework in Frameworks */,
-				7658272E1D556B7700C91EA2 /* FBSDKMessengerShareKit.framework in Frameworks */,
 				763D78DD1D54ADC9001CBDA6 /* libz.tbd in Frameworks */,
 				763D78DB1D54ADBF001CBDA6 /* libstdc++.tbd in Frameworks */,
 				763D78D91D54AD99001CBDA6 /* libz.1.2.5.tbd in Frameworks */,
-				765827341D556B8900C91EA2 /* libAPOpenSdk.a in Frameworks */,
 				763D78D71D54AD80001CBDA6 /* libicucore.tbd in Frameworks */,
-				763D78D31D54ACC2001CBDA6 /* MOBFoundation.framework in Frameworks */,
-				763D78D11D54ACC2001CBDA6 /* libWeChatSDK.a in Frameworks */,
-				763D78CD1D54ACC2001CBDA6 /* TencentOpenAPI.framework in Frameworks */,
-				763D78CF1D54ACC2001CBDA6 /* libWeiboSDK.a in Frameworks */,
 				1E11BE8870A93679D43CD0D5 /* Pods_PicDrizzle.framework in Frameworks */,
-				763D78C91D54ACC1001CBDA6 /* ShareSDK.framework in Frameworks */,
-				763D78CA1D54ACC2001CBDA6 /* ShareSDKExtension.framework in Frameworks */,
-				763D78D51D54ACC2001CBDA6 /* ShareSDKConnector.framework in Frameworks */,
-				763D78CC1D54ACC2001CBDA6 /* ShareSDKUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		749C8B741E7E6DFD00E04CB5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7628161F1D3B1819000019FA /* PreviewViewController.swift */,
+				749C8B721E7E673F00E04CB5 /* KoladaViewConfig.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		749C8B761E7E6E1D00E04CB5 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				749869691E7EB273009092F4 /* FavoriteViewController.swift */,
+			);
+			name = Favorite;
+			sourceTree = "<group>";
+		};
+		749C8B771E7E6E3100E04CB5 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				762816191D3B13B3000019FA /* DisplayViewController.swift */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
 		762815F91D3B1051000019FA = {
 			isa = PBXGroup;
 			children = (
@@ -177,23 +185,12 @@
 				7678DC251D581859000DEE9D /* PDUtilities */,
 				763D78A61D54ACC0001CBDA6 /* ShareSDK */,
 				762816051D3B1051000019FA /* AppDelegate.swift */,
+				740D5AA61E7E472600D73990 /* Launch Screen.storyboard */,
 				7628160C1D3B1051000019FA /* Assets.xcassets */,
-				7628160E1D3B1051000019FA /* LaunchScreen.storyboard */,
 				762816111D3B1051000019FA /* Info.plist */,
-				76CA718C1D3DC2FB00E7B30C /* Main.storyboard */,
 				7678DC261D581D76000DEE9D /* PDUserDefaults.swift */,
 			);
 			path = PicDrizzle;
-			sourceTree = "<group>";
-		};
-		763D78A21D5485C3001CBDA6 /* CircleMenu */ = {
-			isa = PBXGroup;
-			children = (
-				763D789C1D547DA4001CBDA6 /* CircleMenu.swift */,
-				763D789E1D547DAB001CBDA6 /* CircleMenuButton.swift */,
-				763D78A01D547DC8001CBDA6 /* CircleMenuLoader.swift */,
-			);
-			name = CircleMenu;
 			sourceTree = "<group>";
 		};
 		763D78A61D54ACC0001CBDA6 /* ShareSDK */ = {
@@ -312,7 +309,6 @@
 			isa = PBXGroup;
 			children = (
 				762816271D3BB097000019FA /* CustomKoloda.swift */,
-				763D78A21D5485C3001CBDA6 /* CircleMenu */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -321,8 +317,10 @@
 			isa = PBXGroup;
 			children = (
 				762816171D3B1398000019FA /* BaseViewController.swift */,
-				7628161F1D3B1819000019FA /* PreviewViewController.swift */,
-				762816191D3B13B3000019FA /* DisplayViewController.swift */,
+				749C8B741E7E6DFD00E04CB5 /* Home */,
+				749C8B701E7E625600E04CB5 /* PreViewAnimation.swift */,
+				749C8B761E7E6E1D00E04CB5 /* Favorite */,
+				749C8B771E7E6E3100E04CB5 /* Detail */,
 				76CA718A1D3DC2CC00E7B30C /* settingTableViewController.swift */,
 			);
 			name = Controller;
@@ -332,6 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				7678DC1E1D574036000DEE9D /* SingleImage.swift */,
+				7425AD501E7E6F7900E95B27 /* ImageManager.swift */,
+				7425AD521E7E7C7300E95B27 /* LoveList.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -357,6 +357,7 @@
 		C3BBF00D827F632BEA6DC5EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				740D5AA41E7E434C00D73990 /* RevealServer.framework */,
 				763D78E41D54AE15001CBDA6 /* ImageIO.framework */,
 				763D78E21D54AE06001CBDA6 /* MessageUI.framework */,
 				763D78E01D54ADF0001CBDA6 /* libsqlite3.tbd */,
@@ -414,6 +415,7 @@
 				TargetAttributes = {
 					762816011D3B1051000019FA = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 8737MTV4GL;
 					};
 				};
 			};
@@ -441,13 +443,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				763D78CB1D54ACC2001CBDA6 /* ShareSDKUI.bundle in Resources */,
-				76CA718D1D3DC2FB00E7B30C /* Main.storyboard in Resources */,
-				762816101D3B1051000019FA /* LaunchScreen.storyboard in Resources */,
 				763D78CE1D54ACC2001CBDA6 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				763D78D41D54ACC2001CBDA6 /* ShareSDK.bundle in Resources */,
 				7628160D1D3B1051000019FA /* Assets.xcassets in Resources */,
 				763D78D21D54ACC2001CBDA6 /* README.txt in Resources */,
 				763D78D01D54ACC2001CBDA6 /* WeiboSDK.bundle in Resources */,
+				740D5AA71E7E472600D73990 /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,33 +511,24 @@
 				7678DC1F1D574036000DEE9D /* SingleImage.swift in Sources */,
 				76CA718B1D3DC2CC00E7B30C /* settingTableViewController.swift in Sources */,
 				762816061D3B1051000019FA /* AppDelegate.swift in Sources */,
+				7498696A1E7EB273009092F4 /* FavoriteViewController.swift in Sources */,
 				762816281D3BB097000019FA /* CustomKoloda.swift in Sources */,
-				763D78A11D547DC8001CBDA6 /* CircleMenuLoader.swift in Sources */,
+				7425AD531E7E7C7300E95B27 /* LoveList.swift in Sources */,
 				765827351D556B8900C91EA2 /* README.md in Sources */,
+				749C8B731E7E673F00E04CB5 /* KoladaViewConfig.swift in Sources */,
 				763D78A51D548D2C001CBDA6 /* PDDownloader.swift in Sources */,
 				7628161A1D3B13B3000019FA /* DisplayViewController.swift in Sources */,
 				762816181D3B1398000019FA /* BaseViewController.swift in Sources */,
 				7678DC271D581D76000DEE9D /* PDUserDefaults.swift in Sources */,
-				763D789D1D547DA4001CBDA6 /* CircleMenu.swift in Sources */,
 				762816221D3B40FB000019FA /* PDNetwork.swift in Sources */,
+				749C8B711E7E625600E04CB5 /* PreViewAnimation.swift in Sources */,
+				7425AD511E7E6F7900E95B27 /* ImageManager.swift in Sources */,
 				765827371D55B89000C91EA2 /* PDService.swift in Sources */,
-				763D789F1D547DAB001CBDA6 /* CircleMenuButton.swift in Sources */,
 				762816201D3B1819000019FA /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		7628160E1D3B1051000019FA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7628160F1D3B1051000019FA /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		762816121D3B1051000019FA /* Debug */ = {
@@ -627,6 +619,7 @@
 			baseConfigurationReference = AC9D1920BED941C8E8BCA6C3 /* Pods-PicDrizzle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8737MTV4GL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PicDrizzle/ShareSDK",
@@ -634,9 +627,10 @@
 					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/PlatformSDK/QQSDK",
 					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/Required",
 					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/PlatformSDK/FacebookMessengerSDK",
+					"$(PROJECT_DIR)/PicDrizzle",
 				);
 				INFOPLIST_FILE = PicDrizzle/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -645,9 +639,41 @@
 					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/PlatformSDK/APSocialSDK",
 				);
 				New_Setting = "";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"IQKeyboardManagerSwift\"",
+					"-framework",
+					"\"Kingfisher\"",
+					"-framework",
+					"\"Koloda\"",
+					"-framework",
+					"\"Moya\"",
+					"-framework",
+					"\"PKHUD\"",
+					"-framework",
+					"\"Result\"",
+					"-framework",
+					"\"Rswift\"",
+					"-framework",
+					"\"RxCocoa\"",
+					"-framework",
+					"\"RxSwift\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SwiftyUserDefaults\"",
+					"-framework",
+					"\"pop\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.atlantis.PicDrizzle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PicDrizzle/ShareSDK-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -656,6 +682,7 @@
 			baseConfigurationReference = 984028629FE53AEC4D4648EB /* Pods-PicDrizzle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8737MTV4GL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PicDrizzle/ShareSDK",
@@ -663,9 +690,10 @@
 					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/PlatformSDK/QQSDK",
 					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/Required",
 					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/PlatformSDK/FacebookMessengerSDK",
+					"$(PROJECT_DIR)/PicDrizzle",
 				);
 				INFOPLIST_FILE = PicDrizzle/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -674,9 +702,41 @@
 					"$(PROJECT_DIR)/PicDrizzle/ShareSDK/Support/PlatformSDK/APSocialSDK",
 				);
 				New_Setting = "";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"IQKeyboardManagerSwift\"",
+					"-framework",
+					"\"Kingfisher\"",
+					"-framework",
+					"\"Koloda\"",
+					"-framework",
+					"\"Moya\"",
+					"-framework",
+					"\"PKHUD\"",
+					"-framework",
+					"\"Result\"",
+					"-framework",
+					"\"Rswift\"",
+					"-framework",
+					"\"RxCocoa\"",
+					"-framework",
+					"\"RxSwift\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SwiftyUserDefaults\"",
+					"-framework",
+					"\"pop\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.atlantis.PicDrizzle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "./PicDrizzle/ShareSDK-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
